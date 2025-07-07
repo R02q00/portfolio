@@ -4,7 +4,7 @@ import Footer from './sections/footer';
 
 const App = () => {
   return (
-    <div className='min-h-screen flex flex-col justify-between'>
+    <div className='min-h-screen flex flex-col '>
       <Header />
       <Footer />
     </div>

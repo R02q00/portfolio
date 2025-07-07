@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 @plugin "daisyui" {
-    themes: light --default, dark --preferdark;
+    themes: dark --default, light --preferdark;
 }
 
 @font-face {
@@ -21,17 +21,6 @@
     @keyframes draw {
         0% {
             stroke-dashoffset: 0;
-        }
-    }
-
-    @keyframes showContent {
-        from {
-            transform: translateY(50px);
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-            filter: blur(0);
         }
     }
 }
