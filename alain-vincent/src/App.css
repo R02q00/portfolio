@@ -2,10 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @plugin "daisyui" {
     themes: light --default, dark --preferdark;
-
 }
 
 @font-face {
@@ -17,13 +15,23 @@
     .draw-line {
         stroke-dasharray: 160;
         stroke-dashoffset: 160;
-        /* animation: draw 3s ease infinite alternate; */
         animation: draw 3s ease forwards;
     }
 
     @keyframes draw {
         0% {
             stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes showContent {
+        from {
+            transform: translateY(50px);
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0);
         }
     }
 }

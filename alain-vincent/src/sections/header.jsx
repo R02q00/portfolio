@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import Home from "../components/home.jsx";
-import './../styles/header.css'
 import Story from "../components/story.jsx";
+import Skills from "../components/skills.jsx";
+import Project from "../components/projetct.jsx";
+import './../styles/header.css'
+
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
-  const menu = document.querySelector(".humberger");
   const showNavigation = () => {
     setNavOpen(!navOpen);
   }
 
   return (
     <div className="text-base-content">
-      <div className="relative h-15 flex justify-between bg-base-100 px-4 py-2 shadow-sm">
-        <div className="flex items-center">
-          <h3 className="text-bold">R02q00</h3>
+      <div className="relative flex justify-between bg-base-100 px-4 py-2 shadow-sm">
+        <div className="w-10 h-10 flex items-center justify-center bg-indigo-400 rounded-full">
+          <h3 className="text-white">A</h3>
         </div>
         <div className="w-full flex justify-end md:justify-between items-center gap-5">
           <button
@@ -29,9 +31,11 @@ function Header() {
 
           <div className={navOpen ? "navlinks-container open bg-base-100 w-[50%]" : "navlinks-container hidden"}>
             <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Home</a>
-            <span className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Experience</span>
-            <span className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Realisations</span>
-            <span className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Competences</span>
+            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Experience</a>
+            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Project</a>
+            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Skills</a>
+            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Contact</a>
+
           </div>
 
           <div className="flex items-center">
@@ -49,6 +53,8 @@ function Header() {
       </div>
       <div className="mt-2 px-3">
         <Home />
+        <Project />
+        <Skills />
       </div>
     </div>
   );
