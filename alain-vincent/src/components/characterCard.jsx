@@ -13,8 +13,8 @@ function CharacterCard() {
     ];
     const InfoRow = ({ label, value }) => (
         <div className="flex justify-between items-center">
-            <span className="text-gray-400">{label}</span>
-            <span className="">{value}</span>
+            <span className="">{label}</span>
+            <span className="font-semibold">{value}</span>
         </div>
     );
     const Button = ({ children, variant = 'indigo' }) => {
@@ -34,8 +34,8 @@ function CharacterCard() {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setAnimatedElements(prev => Math.min(prev + 1, 7)); // 7 éléments à animer
-        }, 200);
+            setAnimatedElements(prev => Math.min(prev + 1, 7));
+        }, 150);
 
         return () => clearInterval(timer);
     }, []);
@@ -43,23 +43,23 @@ function CharacterCard() {
     const shouldAnimate = (index) => animatedElements > index;
 
     return (
-        <div className="min-h-screen flex justify-end">
+        <div className="flex justify-end">
             {
                 personalInfo.map((value, index) => (
-                    <div key={index} className="w-full lg:w-[85%] text-base-content">
+                    <div key={index} className="w-full lg:w-[85%]">
 
-                        <h1 className={`text-2xl transition-all duration-500 ${shouldAnimate(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                        {/*<h1 className={`text-3xl transition-all duration-500 ${shouldAnimate(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                             {value.name}
                         </h1>
 
                         <div className={`flex mb-2 transition-all duration-500 ${shouldAnimate(1) ? 'opacity-100' : 'opacity-0'}`}>
-                            <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
+                            <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
                             <span className="w-5 h-1 bg-yellow-400 ml-1 rounded-full"></span>
                             <span className="w-full border-b border-gray-400 mr-2"></span>
                             <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        </div>
+                        </div>*/}
 
-                        <p className={` md:text-xl mb-2 text-gray-400 transition-all duration-500 ${shouldAnimate(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                        <p className={`text-lg md:text-xl mb-2 transition-all duration-500 ${shouldAnimate(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                             {value.desc}
                         </p>
 

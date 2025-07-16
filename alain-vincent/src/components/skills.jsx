@@ -3,28 +3,47 @@ import { FaCode, FaServer, FaDatabase, FaTools, FaProjectDiagram, FaLaptopCode }
 const Skills = () => {
     const skillsData = [
         {
-            categories: "Web Development",
-            icon: <FaCode className="text-blue-500" />,
+            categories: "Langages",
+            icon: <FaCode className="text-primary" />,
+            list: [
+                "JavaScript",
+                "TypeScript",
+                "Python",
+                "Java"
+            ]
+        },
+        {
+            categories: "Frontend",
+            icon: <FaCode className="text-secondary" />,
             list: [
                 "HTML5",
                 "CSS3",
-                "JavaScript",
-                "React js",
-                "Tailwind CSS"
+                "React.js",
+                "Next.js",
+                "Tailwind CSS",
             ]
         },
         {
-            categories: "Backend & API",
-            icon: <FaServer className="text-green-500" />,
+            categories: "Mobile",
+            icon: <FaCode className="text-accent" />,
+            list: [
+                "React Native",
+                "Expo"
+            ]
+        },
+        {
+            categories: "Backend",
+            icon: <FaServer className="text-info" />,
             list: [
                 "Node.js",
+                "Express",
                 "Django",
-                "Spring boot"
+                "Spring Boot",
             ]
         },
         {
-            categories: "Databases",
-            icon: <FaDatabase className="text-purple-500" />,
+            categories: "Bases de données",
+            icon: <FaDatabase className="text-success" />,
             list: [
                 "PostgreSQL",
                 "MySQL",
@@ -32,59 +51,55 @@ const Skills = () => {
             ]
         },
         {
-            categories: "Tools & Deployment",
-            icon: <FaTools className="text-yellow-500" />,
+            categories: "DevOps & Outils",
+            icon: <FaTools className="text-warning" />,
             list: [
                 "Git & GitHub",
-                "Vercel / Netlify",
-                "Docker(basic)"
+                "Docker",
+                "Vercel/Netlify",
             ]
         },
         {
-            categories: "Modélisation et Conception",
-            icon: <FaProjectDiagram className="text-red-500" />,
+            categories: "Conception",
+            icon: <FaProjectDiagram className="text-error" />,
             list: [
-                "MERISE",
-                "UML"
+                "UML",
+                "Merise",
             ]
         },
-        {
-            categories: "Other",
-            icon: <FaLaptopCode className="text-indigo-500" />,
-            list: [
-                "Figma",
-                "Inkscape",
-                "Linux"
-            ]
-        }
     ];
 
     return (
-        <div className='mt-4 text-base-content'>
-            <h1 className="text-2xl font-bold text-gray-700 dark:text-white">Skills</h1>
-            <div className="grid md:grid-cols-2 gap-6">
+        <div className="mt-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Compétences</h2>
+            <div className="grid lg:grid-cols-2 gap-6">
                 {skillsData.map((category, index) => (
-                    <div 
-                        key={index} 
-                        className="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border border-gray-100 dark:border-gray-700"
+                    <div
+                        key={index}
+                        className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200"
                     >
-                        <div className="flex items-center gap-3 mb-3">
-                            <div className="p-2 rounded-lg bg-opacity-20 bg-blue-100 dark:bg-blue-900/30">
-                                {category.icon}
+                        <div className="card-body p-6">
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="p-3 rounded-lg bg-opacity-20 bg-base-300">
+                                    {category.icon}
+                                </div>
+                                <h3 className="text-xl font-semibold">
+                                    {category.categories}
+                                </h3>
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                {category.categories}
-                            </h3>
+
+                            <ul className="space-y-2">
+                                {category.list.map((skill, i) => (
+                                    <li
+                                        key={i}
+                                        className="flex items-center gap-3 transition-colors hover:text-primary"
+                                    >
+                                        <span className="w-2 h-2 rounded-full bg-current"></span>
+                                        <span>{skill}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                        
-                        <ul className="space-y-2 pl-1">
-                            {category.list.map((skill, i) => (
-                                <li key={i} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-                                    {skill}
-                                </li>
-                            ))}
-                        </ul>
                     </div>
                 ))}
             </div>

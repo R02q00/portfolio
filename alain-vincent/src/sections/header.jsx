@@ -4,6 +4,7 @@ import Story from "../components/story.jsx";
 import Skills from "../components/skills.jsx";
 import Project from "../components/projetct.jsx";
 import './../styles/header.css'
+import Contact from "../components/contact.jsx";
 
 
 function Header() {
@@ -11,9 +12,26 @@ function Header() {
   const showNavigation = () => {
     setNavOpen(!navOpen);
   }
+  const menu = [
+    { name: "Home", link: '#home' },
+    { name: "Education", link: '#education' },
+    { name: "Experience", link: '#experience' },
+    { name: "Projets", link: '#projet' },
+    { name: "Competences", link: '#competences' },
+    { name: "Contact", link: '#contact' },
 
+  ]
+  const content = [
+    { id: "#home", element: <Home /> },
+    { id: "#education", element: <Story /> },
+    { id: "#projets", element: <Project /> },
+    { id: "#competences", element: <Skills /> },
+    { id: "#contact", element: <Contact /> }
+
+
+  ]
   return (
-    <div className="text-base-content">
+    <div className="">
       <div className="relative h-15 flex justify-between bg-base-100 px-4 py-2 shadow-sm">
         <div className="flex items-center justify-center">
           <a href="" className="bg-yellow-400text-xl font-bold">AV</a>
@@ -30,11 +48,16 @@ function Header() {
           </button>
 
           <div className={navOpen ? "navlinks-container open bg-base-100 w-[50%]" : "navlinks-container hidden"}>
-            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Home</a>
-            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Experience</a>
-            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Project</a>
-            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Skills</a>
-            <a className="cursor-pointer" onClick={() => { setNavOpen(false) }}>Contact</a>
+            {
+              menu.map((items, i) => (
+                <a
+                  key={i}
+                  className="cursor-pointer px-2"
+                  href={`${items.link}`}
+                  onClick={() => { setNavOpen(false) }}>{items.name}</a>
+
+              ))
+            }
 
           </div>
 
@@ -48,13 +71,16 @@ function Header() {
         </div>
 
       </div>
-      <div className="mt-2 px-3">
-
-        <Home />
-        <Story />
-        <Project />
-        <Skills />
-      </div>
+      {
+        content.map((value, i)=>(
+          <div
+            key={i}
+            className="px-3 mt-2"
+          >
+            {value.element}
+          </div>
+        ))
+      }
     </div>
   );
 }
