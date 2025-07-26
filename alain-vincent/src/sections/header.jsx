@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import Home from "../components/home.jsx";
-import Story from "../components/story.jsx";
-import Skills from "../components/skills.jsx";
-import Project from "../components/projetct.jsx";
 import './../styles/header.css'
-import Contact from "../components/contact.jsx";
-
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -16,26 +10,18 @@ function Header() {
     { name: "Home", link: '#home' },
     { name: "Education", link: '#education' },
     { name: "Experience", link: '#experience' },
-    { name: "Projets", link: '#projet' },
+    { name: "Projets", link: '#projets' },
     { name: "Competences", link: '#competences' },
     { name: "Contact", link: '#contact' },
-
   ]
-  const content = [
-    { id: "#home", element: <Home /> },
-    { id: "#education", element: <Story /> },
-    { id: "#projets", element: <Project /> },
-    { id: "#competences", element: <Skills /> },
-    { id: "#contact", element: <Contact /> }
 
-
-  ]
   return (
-    <div className="">
-      <div className="relative h-15 flex justify-between bg-base-100 px-4 py-2 shadow-sm">
+    <nav className="fixed w-full z-20">
+      <div className="relative h-16 flex justify-between bg-base-100 px-4 shadow-sm ">
         <div className="flex items-center justify-center">
-          <a href="" className="bg-yellow-400text-xl font-bold">AV</a>
+          <a href="#home" className="bg-yellow-400text-xl font-bold">AV</a>
         </div>
+
         <div className="w-full flex justify-end md:justify-between items-center gap-5">
           <button
             className={navOpen ? "humberger open" : "humberger"}
@@ -49,12 +35,15 @@ function Header() {
 
           <div className={navOpen ? "navlinks-container open bg-base-100 w-[50%]" : "navlinks-container hidden"}>
             {
-              menu.map((items, i) => (
+              menu.map((items, index) => (
                 <a
-                  key={i}
+                  key={index}
                   className="cursor-pointer px-2"
                   href={`${items.link}`}
-                  onClick={() => { setNavOpen(false) }}>{items.name}</a>
+                  onClick={() => { setNavOpen(false) }}
+                >
+                  {items.name}
+                </a>
 
               ))
             }
@@ -71,17 +60,7 @@ function Header() {
         </div>
 
       </div>
-      {
-        content.map((value, i)=>(
-          <div
-            key={i}
-            className="px-3 mt-2"
-          >
-            {value.element}
-          </div>
-        ))
-      }
-    </div>
+    </nav>
   );
 }
 

@@ -4,7 +4,7 @@ const Story = () => {
     const story = [
         {
             name: "École Nationale d'Informatique ( ENI )",
-            level: "Licence Professionnelle en en Informatique Generale (IG)",
+            level: "Licence Professionnelle en Informatique Generale (IG)",
             desc: "Actuellement en Troisieme année. Je suis dans le parcours Informatique Generale",
             statut: "en cours",
             year: "2022 - Présent",
@@ -31,6 +31,7 @@ const Story = () => {
     return (
         <div className="space-y-8">
             <h2 className="text-2xl md:text-3xl text-center font-bold mb-2">Parcours Académique 🎓</h2>
+
             <div className="relative">
                 {story.map((item, index) => (
                     <div key={index} className="relative pb-6 group">
