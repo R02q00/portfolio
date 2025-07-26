@@ -21,7 +21,7 @@ export default function Content() {
                     <div
                         key={i}
                         id={`${value.id}`}
-                        className="px-3 md:mx-30"
+                        className="px-3 mt-10 lg:mx-20"
                     >
                         {value.element}
                     </div>

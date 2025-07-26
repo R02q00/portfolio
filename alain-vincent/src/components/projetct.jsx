@@ -45,15 +45,15 @@ const Project = () => {
     
     return (
         <div className="mt-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Projets</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center">Mes Projets</h2>
             <div className="grid lg:grid-cols-2 gap-6 py-2">
                 {projectList.map((project, index) => (
                     <div
                         key={index}
                         className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
                     >
-                        <div className="carousel-wrapper flex flex-col gap-2 py-2">
-                            <div className="relative overflow-hidden h-64">
+                        <div className="carousel flex flex-col gap-2 py-2">
+                            <div className="relative carousel-item overflow-hidden h-64">
                                 {project.photo.map((img, index) => (
                                     <div
                                         key={index}
@@ -65,15 +65,6 @@ const Project = () => {
                                             className="h-full sm:max-w-sm rounded-lg object-contain"
                                         />
                                     </div>
-                                ))}
-                            </div>
-                            <div className="flex justify-center space-x-3">
-                                {[0, 1, 2].map((dot) => (
-                                    <button
-                                        key={dot}
-                                        className={`size-4 rounded-full cursor-pointer transition-all ${count === dot ? 'bg-indigo-500' : 'bg-gray-300'}`}
-                                        onClick={() => setCount(dot)}
-                                    />
                                 ))}
                             </div>
                         </div>
