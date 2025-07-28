@@ -16,7 +16,7 @@ function Header() {
   ]
 
   return (
-    <nav className="fixed w-full z-20">
+    <nav>
       <div className="relative h-16 flex justify-between bg-base-100 px-4 shadow-sm ">
         <div className="flex items-center justify-center">
           <a href="#home" className="bg-yellow-400text-xl font-bold">AV</a>

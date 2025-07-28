@@ -48,23 +48,23 @@ const Contact = () => {
             <div className="space-y-5">
                 <h1 className="text-2xl text-center font-bold">Contact</h1>
                 <section className="grid">
-                    <a href="" className="text-lg text-indigo-700 font-bold mb-3">Adresse</a>
+                    <a href="" className="text-lg text-indigo-700 font-bold">Adresse</a>
                     <span className="text-right md:text-left font-medium">Lot 447B/3306 Fosarato Idanda</span>
                     <span className="text-right md:text-left">Fianarantsoa, Madagascar</span>
                 </section>
 
                 <section className="grid">
-                    <a href="" className="text-md text-indigo-700 font-bold mb-3">Email</a>
+                    <a href="" className="text-md text-indigo-700 font-bold">Email</a>
                     <span className="text-right md:text-left font-medium">alain.vincent069@gmail.com</span>
                 </section>
 
                 <section className="grid">
-                    <a href="" className="text-lg text-indigo-700 font-bold mb-3">Social</a>
+                    <a href="" className="text-lg text-indigo-700 font-bold">Social</a>
                     <span className="text-right md:text-left">+261 34 64 450 06 (WhatsApp)</span>
                 </section>
             </div>
             <form onSubmit={handleSendMessage} className="mt-2">
-                <h3 className="text-xl">Laissez-moi un message!</h3>
+                <h3 className="text-xl mb-2">Laissez-moi un message!</h3>
                 <div className="flex flex-col gap-6">
                     <InputField
                         id="name"

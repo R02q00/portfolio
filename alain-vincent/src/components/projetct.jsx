@@ -15,30 +15,30 @@ const Project = () => {
         {
             photo: [n_login],
             title: "Nero",
-            desc: "",
+            desc: "Un models IA utilisant ollama",
             stack: ["Next.js", "PostgreSQL", "Django", "Tailwindcss"],
-            link: "https://github.com/R02q00/device-flow",
+            link: "https://github.com/R02q00/nero.git",
         },
         {
             photo: [d_home, d_loan, d_list],
             title: "Device-Flow",
-            desc: "",
+            desc: "Une applications de gestion de materiels informatiques",
             stack: ["React.js", "PostgreSQL", "Node.js", "Tailwindcss"],
-            link: "https://github.com/R02q00/device-flow",
+            link: "https://github.com/R02q00/device-flow.git",
         },
         {
             photo: [s_home],
-            title: "Security Web",
+            title: "Securité Web",
             desc: "",
             stack: ["Nginx", "OpenSSL", "html, css, js"],
-            link: "https://github.com/R02q00/security-web"
+            link: "https://github.com/R02q00/security-web.git"
         },
         {
             photo: [],
             title: "Webcam Switch",
-            desc: "",
+            desc: "Une application de visualisation entre differents camera",
             stack: ["Python", "OpenCV", "tkinter"],
-            link: "https://github.com/R02q00/webcam-switch"
+            link: "https://github.com/R02q00/webcam-switch.git"
         }
     ];
     const [currentIndex, setCurrentIndex] = useState(0)

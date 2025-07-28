@@ -48,7 +48,7 @@ function CharacterCard() {
                 personalInfo.map((value, index) => (
                     <div key={index} className="w-full lg:w-[85%]">
 
-                        <h1 className={`text-3xl transition-all duration-500 ${shouldAnimate(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                        {/*<h1 className={`text-3xl transition-all duration-500 ${shouldAnimate(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                             {value.name}
                         </h1>
 
@@ -57,9 +57,9 @@ function CharacterCard() {
                             <span className="w-5 h-1 bg-yellow-400 ml-1 rounded-full"></span>
                             <span className="w-full border-b border-gray-400 mr-2"></span>
                             <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        </div>
+                        </div>*/}
 
-                        <p className={`text-lg md:text-xl mb-2 transition-all duration-500 ${shouldAnimate(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                        <p className={`text-lg text-center md:text-xl mb-2 transition-all duration-500 ${shouldAnimate(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                             {value.desc}
                         </p>
 

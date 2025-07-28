@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import personne from '../images/nero.png'
+import personne from '../images/alain-vincent.jpg'
 const Logo = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,7 +8,7 @@ const Logo = () => {
   let speed = 70;
   let pause = 3000;
 
-  useEffect(() => {
+  useEffect(() => {/*
     let timeOut;
     if (!isDeleteting && currentIndex < text.length) {
       timeOut = setTimeout(() => {
@@ -27,17 +27,16 @@ const Logo = () => {
         setIsDeleting(prev => !prev);
       }, pause);
     }
-    return () => clearTimeout(timeOut);
+    return () => clearTimeout(timeOut);*/
 
   }, [currentIndex, isDeleteting, text, speed, pause])
 
   return (
-    <div className="flex flex-col gap-5 items-center justify-end mt-5">
-      <figure className="move-top">
-        <img src={personne} alt="Alain vincet" className="sm:max-w-sm"/>
+    <div className="flex flex-col gap-5 items-center justify-end">
+      <figure className="move-top w-60 h-60 border flex items-center rounded-full">
       </figure>
-      <div className="">
-        <h1 className="text-2xl text-center text-bold text-indigo-700">DEVELOPPEUR {displayText}</h1>
+      <div>
+        <h1 className="text-3xl font-bold">Alain Vincent</h1>
       </div>
     </div>
   );
