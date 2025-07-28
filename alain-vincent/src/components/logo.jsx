@@ -6,7 +6,7 @@ const Logo = () => {
   const [isDeleteting, setIsDeleting] = useState(false);
   let text = "FULL STACK";
   let speed = 70;
-  let pause = 1000;
+  let pause = 3000;
 
   useEffect(() => {
     let timeOut;

@@ -1,0 +1,24 @@
+[
+    {
+        "name": "python",
+        "src": "/tech/python.svg"
+    },
+    {
+        "name": "react.js",
+        "src": "/tech/reactjs.svg"
+    },
+    
+    {
+        "name": "node.js",
+        "src": "/tech/node-js.svg"
+    },
+    {
+        "name":"tailwindcss",
+        "src":"/tech/tailwindcss.svg"
+    },
+    {
+        "name":"mysql",
+        "src":"/tech/mysql.svg"
+    }
+    
+]

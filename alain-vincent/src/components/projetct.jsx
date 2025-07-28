@@ -30,7 +30,7 @@ const Project = () => {
             photo: [s_home],
             title: "Security Web",
             desc: "",
-            stack: ["Nginx", "OpenSSL","html, css, js"],
+            stack: ["Nginx", "OpenSSL", "html, css, js"],
             link: "https://github.com/R02q00/security-web"
         },
         {
@@ -41,32 +41,23 @@ const Project = () => {
             link: "https://github.com/R02q00/webcam-switch"
         }
     ];
-    const [count, setCount] = useState(0);
-    
+    const [currentIndex, setCurrentIndex] = useState(0)
     return (
-        <div className="mt-8">
+        <div>
             <h2 className="text-2xl md:text-3xl font-bold text-center">Mes Projets</h2>
+            <p className='text-md'>Je vous fait part des project sur lequels j'ai participé</p>
             <div className="grid lg:grid-cols-2 gap-6 py-2">
                 {projectList.map((project, index) => (
                     <div
                         key={index}
                         className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
                     >
-                        <div className="carousel flex flex-col gap-2 py-2">
-                            <div className="relative carousel-item overflow-hidden h-64">
-                                {project.photo.map((img, index) => (
-                                    <div
-                                        key={index}
-                                        className={`absolute inset-0 transition-opacity duration-300 flex justify-center ${count === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                                    >
-                                        <img
-                                            src={img}
-                                            alt={`photo ${index + 1}`}
-                                            className="h-full sm:max-w-sm rounded-lg object-contain"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
+                        <div className="relative overflow-hidden h-64">
+                            {project.photo.map((img, index) => (
+                                <div key={index} className={`absolute inset-0 transition-opacity duration-300 flex justify-center ${currentIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                                    <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm rounded-lg object-contain" />
+                                </div>
+                            ))}
                         </div>
                         <div className="card-body p-6 pt-4">
                             <h3 className="card-title text-2xl">{project.title}</h3>

@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { FaCode, FaServer, FaDatabase, FaTools, FaProjectDiagram, FaLaptopCode } from 'react-icons/fa';
-
+import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci"
 const Skills = () => {
     const skillsData = [
         {
@@ -51,7 +52,7 @@ const Skills = () => {
             ]
         },
         {
-            categories: "DevOps & Outils",
+            categories: "Outils",
             icon: <FaTools className="text-warning" />,
             list: [
                 "Git & GitHub",
@@ -68,10 +69,72 @@ const Skills = () => {
             ]
         },
     ];
+    const [logo, setLogo] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0)
+    useEffect(() => {
+        fetch('/data/logo.json')
+            .then(response => response.json())
+            .then(data => {
+                setLogo(data)
+            });
+    }, [])
+
+    const prevLogo = () => {
+        setCurrentIndex((prevIndex) => {
+            prevIndex === 0 ? logo.length - 1 : prevIndex - 1
+        })
+    };
+
+    const nextLogo = () => {
+        setCurrentIndex((prevIndex) => {
+            prevIndex === logo.length - 1 ? 0 : prevIndex + 1;
+        })
+    }
 
     return (
         <div className="mt-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Compétences</h2>
+            <div className='relative max-w-xl mx-auto h-64 flex flex-col justify-center items-center'>
+
+                <div className='overflow-hidden flex justify-center gap-2'>
+                    {/*
+                        logo.map((tech, index) => (
+                            <div key={index} className='bg-gray-200 p-1 rounded-full'>
+                                <img
+                                    src={tech.src}
+                                    alt={tech.name}
+                                    className='object-contain transition-opacity duration-300' />
+                            </div>
+                        ))
+                    */}
+                </div>
+
+
+                <CiCircleChevLeft
+                    onClick={() => { prevLogo() }}
+                    className='absolute left-2 top-1/2 -translate-y-1/2 text-yellow-400 size-8 rounded-full text-center active:border'
+                />
+
+                <CiCircleChevRight
+                    onClick={() => { nextLogo() }}
+                    className='absolute right-2 top-1/2 -translate-y-1/2 text-yellow-400 font-bold size-8 rounded-full active:border'
+                />
+
+
+                <div className='flex justify-center mt-4 space-x-3'>
+                    {
+                        logo.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`size-3 rounded-full ${currentIndex === index ? 'bg-yellow-400' : 'bg-gray-300 '}`}
+                                onClick={() => setCurrentIndex(index)}
+                            >
+                            </button>
+                        ))
+                    }
+                </div>
+
+            </div>
             <div className="grid lg:grid-cols-2 gap-6">
                 {skillsData.map((category, index) => (
                     <div

@@ -16,7 +16,7 @@ const InputField = ({ id, label, type = 'text', value, onChange, error }) => {
     const containerClasses = `
         relative border rounded-sm pb-2 px-3
         ${error
-            ? 'border-red-500'
+            ? 'border-red-400'
             : isFocused
                 ? 'border-indigo-500'
                 : 'border-gray-500'
@@ -38,7 +38,7 @@ const InputField = ({ id, label, type = 'text', value, onChange, error }) => {
                     onChange={onChange}
                 />
             </div>
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
         </div>
     );
 };
