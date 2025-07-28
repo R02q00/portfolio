@@ -13,7 +13,7 @@ export default function Content() {
     ]
     return (
         <>
-            <div id="home" className="px-3 mx-auto">
+            <div id="home" className="mt-10 lg:mt-0">
                 <Home />
             </div>
             {
