@@ -28,7 +28,7 @@ const Contact = () => {
 
     const Button = ({ children, action, variant = 'indigo' }) => {
         const variants = {
-            indigo: 'border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white ',
+            indigo: 'border-indigo-600 text-indigo-600 hover:border-indigo-200',
             yellow: 'border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white'
         };
 

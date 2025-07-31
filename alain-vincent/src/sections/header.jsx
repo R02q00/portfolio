@@ -9,7 +9,6 @@ function Header() {
   const menu = [
     { name: "Home", link: '#home' },
     { name: "Education", link: '#education' },
-    { name: "Experience", link: '#experience' },
     { name: "Projets", link: '#projets' },
     { name: "Competences", link: '#competences' },
     { name: "Contact", link: '#contact' },

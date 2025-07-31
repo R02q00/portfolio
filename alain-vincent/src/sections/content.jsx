@@ -13,7 +13,7 @@ export default function Content() {
     ]
     return (
         <>
-            <div id="home" className="mt-10 lg:mt-0">
+            <div id="home" className="mt-10 lg:mt-0 mb-8">
                 <Home />
             </div>
             {
@@ -21,7 +21,7 @@ export default function Content() {
                     <div
                         key={i}
                         id={`${value.id}`}
-                        className="px-3 mt-10 md:mx-30"
+                        className="px-3 md:mx-30"
                     >
                         {value.element}
                     </div>

@@ -2,9 +2,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import d_home from '../images/device-flow-home.png'
 import d_loan from '../images/device-flow-loan-list.png'
 import d_list from '../images/device-flow-list.png'
-
 import s_home from '../images/securite-web.png'
-
 import n_login from '../images/nero-login.png'
 import { useState } from 'react';
 
@@ -20,7 +18,7 @@ const Project = () => {
             link: "https://github.com/R02q00/nero.git",
         },
         {
-            photo: [d_home, d_loan, d_list],
+            photo: [d_home],
             title: "Device-Flow",
             desc: "Une applications de gestion de materiels informatiques",
             stack: ["React.js", "PostgreSQL", "Node.js", "Tailwindcss"],
@@ -50,15 +48,15 @@ const Project = () => {
                 {projectList.map((project, index) => (
                     <div
                         key={index}
-                        className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
+                        className="bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
                     >
-                        <div className="relative overflow-hidden h-64">
-                            {project.photo.map((img, index) => (
-                                <div key={index} className={`absolute inset-0 transition-opacity duration-300 flex justify-center ${currentIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                                    <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm rounded-lg object-contain" />
-                                </div>
-                            ))}
-                        </div>
+
+                        {project.photo.map((img, index) => (
+                            <div key={index} className='flex overflow-hidden rounded-lg'>
+                                <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm object-contain" />
+                            </div>
+                        ))}
+
                         <div className="card-body p-6 pt-4">
                             <h3 className="card-title text-2xl">{project.title}</h3>
                             <p className="text-base-content/70">{project.desc}</p>
