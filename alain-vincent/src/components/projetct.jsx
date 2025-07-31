@@ -39,7 +39,7 @@ const Project = () => {
             link: "https://github.com/R02q00/webcam-switch.git"
         }
     ];
-    const [currentIndex, setCurrentIndex] = useState(0)
+
     return (
         <div>
             <h2 className="text-2xl md:text-3xl font-bold text-center">Mes Projets</h2>
@@ -48,14 +48,14 @@ const Project = () => {
                 {projectList.map((project, index) => (
                     <div
                         key={index}
-                        className="bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
+                        className="card bg-base-100 p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-200 hover:border-primary/20"
                     >
 
-                        {project.photo.map((img, index) => (
-                            <div key={index} className='flex overflow-hidden rounded-lg'>
-                                <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm object-contain" />
-                            </div>
-                        ))}
+                        <div className='overflow-hidden'>
+                            {project.photo.map((img, index) => (
+                                <img key={index} src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm rounded-lg object-contain" />
+                            ))}
+                        </div>
 
                         <div className="card-body p-6 pt-4">
                             <h3 className="card-title text-2xl">{project.title}</h3>

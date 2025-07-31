@@ -44,7 +44,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="grid md:grid-cols-2 gap-3 pt-8">
             <div className="space-y-5">
                 <h1 className="text-2xl text-center font-bold">Contact</h1>
                 <section className="grid">
@@ -63,8 +63,8 @@ const Contact = () => {
                     <span className="text-right md:text-left">+261 34 64 450 06 (WhatsApp)</span>
                 </section>
             </div>
-            <form onSubmit={handleSendMessage} className="mt-2">
-                <h3 className="text-xl mb-2">Laissez-moi un message!</h3>
+
+            <form onSubmit={handleSendMessage} className="mt-2 sm:mt-8 md:mt-0">
                 <div className="flex flex-col gap-6">
                     <InputField
                         id="name"
@@ -92,7 +92,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-4">
                     <Button variant="indigo" action={handleSendMessage}>
-                        Send Message
+                        Envoyer Message
                     </Button>
                 </div>
             </form>
