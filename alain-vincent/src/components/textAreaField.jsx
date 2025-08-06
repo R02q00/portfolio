@@ -14,7 +14,7 @@ const TextAreaField = ({ id, label, value, onChange, error }) => {
         }
     `;
     const containerClasses = `
-        relative border rounded-sm pb-2 px-3
+        relative border rounded-sm px-3
         ${error
             ? 'border-red-500'
             : isFocused

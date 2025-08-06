@@ -94,7 +94,7 @@ const Skills = () => {
         <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Compétences</h2>
 
-            <div className="grid lg:grid-cols-2 gap-6 mb-4">
+            <div className="grid lg:grid-cols-3 gap-6 mb-4">
                 {skillsData.map((category, index) => (
                     <div
                         key={index}

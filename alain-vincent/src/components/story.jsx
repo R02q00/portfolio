@@ -57,18 +57,17 @@ const Story = () => {
     return (
         <div>
             <h2 className="text-center text-2xl font-bold mb-2">Parcours Académique 🎓</h2>
-            <p className="text-md">En ce moment je frequente l'Ecole Nationale d'Informatique de l'Universite de Fianarantsoa</p>
             <div className="grid md:grid-cols-2"> 
 
-                <div className="space-y-4">
-                    <div className="relative overflow-hidden h-64">
+                <div className="">
+                    <div className="relative overflow-hidden h-75">
                         {photo.map((img, index) => (
                             <div key={index} className={`absolute inset-0 transition-opacity duration-300 flex justify-center ${currentIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                                <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm rounded-lg object-contain" />
+                                <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm md:max-w-md lg:max-w-lg rounded-lg object-contain" />
                             </div>
                         ))}
                     </div>
-                    <div className="flex justify-center space-x-2 mb-2">
+                    <div className="flex justify-center space-x-2 py-4">
                         {photo.map((_, index) => (
                             <button
                                 key={index}

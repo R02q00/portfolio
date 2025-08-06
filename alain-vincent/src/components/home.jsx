@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa'
 import photo_profile from '../images/profil.jpg'
 const Home = () => {
     return (
-        <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <section className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 justify-between items-center">
 
                 <div className="space-y-4 mb-8 md:mb-0">

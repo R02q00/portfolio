@@ -42,8 +42,7 @@ const Project = () => {
 
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-center">Mes Projets</h2>
-            <p className='text-md'>Je vous fait part des project sur lequels j'ai participé</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">Mes Projets</h2>
             <div className="grid lg:grid-cols-2 gap-6 py-2">
                 {projectList.map((project, index) => (
                     <div

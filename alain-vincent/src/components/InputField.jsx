@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InputField = ({ id, label, type = 'text', value, onChange, error }) => {
+const InputField = ({ id, name, label, type = 'text', value, onChange, error }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => setIsFocused(true);
@@ -13,8 +13,9 @@ const InputField = ({ id, label, type = 'text', value, onChange, error }) => {
             : 'top-1/2 transform -translate-y-1/2'
         }
     `;
+    
     const containerClasses = `
-        relative border rounded-sm pb-2 px-3
+        relative border rounded-sm px-3
         ${error
             ? 'border-red-400'
             : isFocused
@@ -29,6 +30,7 @@ const InputField = ({ id, label, type = 'text', value, onChange, error }) => {
                 <label htmlFor={id} className={labelClasses} >{label}</label>
                 <input
                     id={id}
+                    name={name}
                     type={type}
                     value={value}
                     placeholder=" "
