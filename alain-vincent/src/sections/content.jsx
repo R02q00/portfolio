@@ -13,7 +13,7 @@ export default function Content() {
     ]
     return (
         <>
-            <div id="home" className="mt-10 lg:mt-0 mb-8">
+            <div id="home" className="mt-10 lg:mt-6 mb-8">
                 <Home />
             </div>
             {
