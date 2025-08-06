@@ -6,6 +6,8 @@ import { FaGithub } from "react-icons/fa";
 
 const Contact = () => {
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" });
     const [messageContent, setMessageContent] = useState({
         name: '',
         email: '',
@@ -17,12 +19,38 @@ const Contact = () => {
         setMessageContent(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSendMessage = (e) => {
+    const handleSendMessage = async (e) => {
         e.preventDefault();
         const validationErrors = Validate(messageContent);
         setErrors(validationErrors);
+
         if (Object.values(validationErrors).every(error => error === "")) {
-            console.log("Message content :", messageContent);
+            setIsSubmitting(true);
+
+            try {
+                const response = await fetch("https://formspree.io/f/alain.vincent069@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: messageContent.name,
+                        email: messageContent.email,
+                        message: messageContent.message
+                    }),
+                });
+
+                if (response.ok) {
+                    setSubmitStatus({ success: true, message: "Message envoyé avec succès !" });
+                    setMessageContent({ name: "", email: "", message: "" });
+                } else {
+                    throw new Error("Erreur lors de l'envoi");
+                }
+            } catch (error) {
+                setSubmitStatus({ success: false, message: "Une erreur est survenue. Réessayez plus tard." });
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -45,9 +73,10 @@ const Contact = () => {
 
     return (
         <>
-            <h1 className="text-2xl md:text-3xl text-center mb-6 font-bold">Contact</h1>
-            <div className="grid md:grid-cols-2 gap-3">
-                <div className="space-y-5 ">
+            <h1 className="text-2xl md:text-3xl text-center font-bold">Contact</h1>
+            <p className="text-lg mb-4">Laisser-moi un message ou connectons-nous sur d'autre plateforme.</p>
+            <div className="grid w-full md:w-[800px] md:grid-cols-2 gap-3 mt-2">
+                <div className="space-y-5">
                     <section className="grid">
                         <a href="" className="text-lg text-indigo-700 font-bold">Adresse</a>
                         <span className="text-right md:text-left font-medium">Lot 447B/3306 Fosarato Idanda</span>
@@ -62,16 +91,16 @@ const Contact = () => {
                     <section className="grid">
                         <a href="" className="text-lg text-indigo-700 font-bold">Social</a>
                         <span className="text-right md:text-left">+261 34 64 450 06 (WhatsApp)</span>
-                        
+
                     </section>
                 </div>
 
-                <form
-                    onSubmit={handleSendMessage} className="mt-2 sm:mt-8 md:mt-0"
-                    action="https://formspree.io/f/alain.vincent069@gmail.com"
-                    method="POST"
-                    data-netlify="true"
-                >
+                <form onSubmit={handleSendMessage} className="mt-2 sm:mt-8 md:mt-0">
+                    {submitStatus.message && (
+                        <p className={`my-3 text-center ${submitStatus.success ? "text-green-600" : "text-red-500"}`}>
+                            {submitStatus.message}
+                        </p>
+                    )}
                     <div className="flex flex-col gap-6">
                         <InputField
                             id="name"

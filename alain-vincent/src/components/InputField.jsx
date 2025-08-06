@@ -13,15 +13,10 @@ const InputField = ({ id, name, label, type = 'text', value, onChange, error }) 
             : 'top-1/2 transform -translate-y-1/2'
         }
     `;
-    
+
     const containerClasses = `
         relative border rounded-sm px-3
-        ${error
-            ? 'border-red-400'
-            : isFocused
-                ? 'border-indigo-500'
-                : 'border-gray-500'
-        }
+        ${isFocused ? 'border-indigo-500' : 'border-gray-500'}
     `;
 
     return (

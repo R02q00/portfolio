@@ -15,12 +15,7 @@ const TextAreaField = ({ id, label, value, onChange, error }) => {
     `;
     const containerClasses = `
         relative border rounded-sm px-3
-        ${error
-            ? 'border-red-500'
-            : isFocused
-                ? 'border-indigo-500'
-                : 'border-gray-500'
-        }
+        ${isFocused ? 'border-indigo-500' : 'border-gray-500'}
     `;
 
     return (
@@ -37,7 +32,7 @@ const TextAreaField = ({ id, label, value, onChange, error }) => {
                     onChange={onChange}
                 />
             </div>
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
         </div>
     );
 };

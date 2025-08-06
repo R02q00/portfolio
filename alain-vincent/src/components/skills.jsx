@@ -94,7 +94,7 @@ const Skills = () => {
         <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Compétences</h2>
 
-            <div className="grid lg:grid-cols-3 gap-6 mb-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
                 {skillsData.map((category, index) => (
                     <div
                         key={index}
@@ -126,10 +126,10 @@ const Skills = () => {
                 ))}
             </div>
 
-            <div className='relative max-w-xl mx-auto flex flex-col justify-center items-center'>
+           {/*<div className='relative max-w-xl mx-auto flex flex-col justify-center items-center'>
 
                 <div className='overfolw-hidden flex justify-center items-center'>
-                    {/*
+                    {
                         logo.map((tech, index) => (
                             <div key={index} className={`bg-gray-100 p-2 rounded-full`}>
                                 <img
@@ -138,7 +138,7 @@ const Skills = () => {
                                     className='object-contain transition-opacity duration-300' />
                             </div>
                         ))
-                    */}
+                    }
                 </div>
 
 
@@ -165,7 +165,7 @@ const Skills = () => {
                         ))
                     }
                 </div>
-            </div>
+            </div>*/}
         </div>
     );
 };
