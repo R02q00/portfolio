@@ -13,7 +13,7 @@ const Project = () => {
         {
             photo: [n_login],
             title: "Nero",
-            desc: "Un models IA utilisant ollama",
+            desc: "Une simple application utilise un model IA",
             stack: ["Next.js", "PostgreSQL", "Django", "Tailwindcss"],
             link: "https://github.com/R02q00/nero.git",
         },
@@ -21,15 +21,15 @@ const Project = () => {
             photo: [d_home],
             title: "Device-Flow",
             desc: "Une applications de gestion de materiels informatiques",
-            stack: ["React.js", "PostgreSQL", "Node.js", "Tailwindcss"],
+            stack: ["React.js", "PostgreSQL", "Node.js", "JWT", "Tailwindcss"],
             link: "https://github.com/R02q00/device-flow.git",
         },
         {
             photo: [s_home],
             title: "Securité Web",
-            desc: "",
+            desc: "Mettre en place une gadenas de securite(https)",
             stack: ["Nginx", "OpenSSL", "html, css, js"],
-            link: "https://github.com/R02q00/security-web.git"
+            link: "https://github.com/R02q00/securite-web.git"
         },
         {
             photo: [],

@@ -20,7 +20,7 @@ const Story = () => {
             level: "Baccalauréat Scientifique",
             desc: "Obtention de diplôme d'ensegnement generale Option S",
             statut: "Obtenu",
-            year: "2019",
+            year: "2022",
             icon: <FiAward className="text-green-600" />
         },
         {
@@ -28,7 +28,7 @@ const Story = () => {
             level: "Brevet d'Études du Premier Cycle(BEPC)",
             desc: "Parcours général avec excellente maîtrise des matières scientifiques.",
             statut: "Obtenu",
-            year: "2015",
+            year: "2019",
             icon: <FiCheckCircle className="text-purple-600" />
         }
     ];
@@ -42,10 +42,8 @@ const Story = () => {
             </div>
         )
     }
-    const [activeStory, setActiveStory] = useState(0);
 
     const [currentIndex, setCurrentIndex] = useState(0)
-
     const photo = [eni, lycee, college];
     useEffect(() => {
         const interval = setInterval(() => {
@@ -57,16 +55,14 @@ const Story = () => {
     return (
         <div>
             <h2 className="text-center text-2xl font-bold mb-2">Parcours Académique 🎓</h2>
-            <div className="grid md:grid-cols-2"> 
+            <div className="grid md:grid-cols-2">
 
-                <div className="">
-                    <div className="relative overflow-hidden h-75">
-                        {photo.map((img, index) => (
-                            <div key={index} className={`absolute inset-0 transition-opacity duration-300 flex justify-center ${currentIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                                <img src={img} alt={`photo ${index + 1}`} className="h-full sm:max-w-sm md:max-w-md lg:max-w-lg rounded-lg object-contain" />
-                            </div>
-                        ))}
-                    </div>
+                <div className="flex flex-col justify-center items-center">
+                    {photo.map((img, index) => (
+                        <div key={index} className={`flex justify-center ${currentIndex === index ? 'opacity-100' : 'hidden'}`}>
+                            <img src={img} alt={`photo ${index + 1}`} className=" w-[70%] rounded-lg object-contain" />
+                        </div>
+                    ))}
                     <div className="flex justify-center space-x-2 py-4">
                         {photo.map((_, index) => (
                             <button
@@ -80,9 +76,9 @@ const Story = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className="">
                     {story.map((item, index) => (
-                        <div key={index} className={`relative group ${activeStory === index ? 'opacity-100' : 'hidden'}`}>
+                        <div key={index} className="group">
                             <div className="card p-2">
                                 <div className="flex items-start gap-4">
                                     <div className="p-3 rounded-lg bg-opacity-20 bg-base-300">
