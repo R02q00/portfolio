@@ -35,7 +35,7 @@ const Contact = () => {
                     body: formData,
                 });
 
-                if (response.ok) {
+                if (response.status === 200 || response.status === 302) {
                     setSubmitStatus({ success: true, message: "Message envoyé avec succès !" });
                     setMessageContent({ name: "", email: "", message: "" });
                 } else {
