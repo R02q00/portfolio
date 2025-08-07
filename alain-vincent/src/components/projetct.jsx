@@ -4,6 +4,7 @@ import d_loan from '../images/device-flow-loan-list.png'
 import d_list from '../images/device-flow-list.png'
 import s_home from '../images/securite-web.png'
 import n_login from '../images/nero-login.png'
+import w_switch from '../images/webcam_switch.png'
 import { useState } from 'react';
 
 
@@ -27,12 +28,12 @@ const Project = () => {
         {
             photo: [s_home],
             title: "Securité Web",
-            desc: "Mettre en place une gadenas de securite(https)",
-            stack: ["Nginx", "OpenSSL", "html, css, js"],
+            desc: "Hébergement sécurise d'une page web avec integration de certificats SSL",
+            stack: ["Nginx", "OpenSSL"],
             link: "https://github.com/R02q00/securite-web.git"
         },
         {
-            photo: [],
+            photo: [w_switch],
             title: "Webcam Switch",
             desc: "Une application de visualisation entre differents camera",
             stack: ["Python", "OpenCV", "tkinter"],
@@ -43,7 +44,7 @@ const Project = () => {
     return (
         <div>
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">Mes Projets</h2>
-            <div className="grid lg:grid-cols-2 gap-6 py-2">
+            <div className="grid md:grid-cols-2 gap-6 py-2">
                 {projectList.map((project, index) => (
                     <div
                         key={index}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TextAreaField = ({ id, label, value, onChange, error }) => {
+const TextAreaField = ({ id, name, label, value, onChange, error }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => setIsFocused(true);
@@ -24,6 +24,7 @@ const TextAreaField = ({ id, label, value, onChange, error }) => {
                 <label htmlFor={id} className={labelClasses} >{label}</label>
                 <textarea
                     id={id}
+                    name={id}
                     value={value}
                     placeholder=" "
                     className="block p-3 w-full text-lg appearance-none focus:outline-none bg-transparent"

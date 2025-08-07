@@ -8,7 +8,7 @@ const Home = () => {
                 <div className="space-y-4 mb-8 md:mb-0">
                     <h1 className="text-4xl sm:text-3xl md:text-4xl font-bold text-center md:text-left">Bonjour, je suis <span className="text-indigo-600">Alain Vincent</span></h1>
                     <p className="text-2xl max-w-lg text-center md:text-left">
-                        Etudiant en Ingenerie Informatique, en ce moment je suis à la recherche d'opportunite pour accroître mes competences et avoir des experience dans le monde de travail.
+                        Etudiant en Ingénierie Informatique, en ce moment je suis à la recherche d'opportunite pour accroître mes competences et avoir des experience dans le monde de travail.
                     </p>
                     <div className='flex justify-center md:justify-start gap-4 pt-4'>
                         <a
@@ -35,7 +35,7 @@ const Home = () => {
                             <FaGithub size={24} />
                         </a>
                         <a
-                            href=""
+                            href="https://www.linkdin.com/in/alain-razafimandimby"
                             target='_blank'
                             rel='noopener noreferrer'
                             className='hover:text-indigo-700 transition duration-300'

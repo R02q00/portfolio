@@ -61,10 +61,10 @@ const Story = () => {
     return (
         <div className="">
             <h2 className="text-center text-3xl font-bold mb-6">Parcours Académique 🎓</h2>
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="grid md:grid-cols-2">
 
                 {/* Image Slider Section */}
-                <div className="md:w-1/2 flex flex-col items-center justify-center">
+                <div className="md:w-2/3 flex flex-col items-center justify-center">
                     <div className="w-full h-64 md:h-96 relative overflow-hidden rounded-xl shadow-lg">
                         {story.map((item, index) => (
                             <img
@@ -92,7 +92,7 @@ const Story = () => {
                 </div>
 
                 {/* Timeline Section */}
-                <div className="md:w-1/2 relative">
+                <div className="relative">
 
                     {story.map((item, index) => (
                         <div
@@ -103,14 +103,15 @@ const Story = () => {
                                 setActiveStory(index);
                             }}
                         >
-                            <div className={`absolute left-0 w-6 h-6 rounded-full flex items-center justify-center ${activeStory === index ? 'bg-indigo-600 text-white' : 'bg-indigo-100 text-indigo-600'} transform -translate-x-1/2 z-10`}>
-                                {item.icon}
+                            <div className={`absolute left-0 w-6 h-6 rounded-full flex items-center justify-center ${activeStory === index ? 'bg-indigo-600' : 'bg-indigo-100'} transform -translate-x-1/2 z-10`}>
+
                             </div>
                             <div className={`p-4 md:p-6 rounded-lg shadow-md ${activeStory === index ? 'bg-white border-l-4 border-indigo-600' : 'bg-gray-50'}`}>
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="text-lg font-bold text-indigo-800">{item.name}</h3>
-                                    <span className="text-sm text-gray-500">{item.year}</span>
                                 </div>
+                                <span className="text-sm text-gray-500">{item.year}</span>
+
                                 <p className="text-indigo-600 font-medium">{item.level}</p>
                                 {item.desc && <p className="mt-2 text-gray-700">{item.desc}</p>}
                                 <Statut status={item.statut} />
