@@ -17,7 +17,7 @@ const Home = () => {
                         >
                             Me contacter
                         </a>
-                        <a href=""
+                        <a href="/CV_Alain_Vincent.pdf"
                             download
                             className='p-2 md:px-4 md:py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg hover:border-indigo-50 transition duration-300 flex gap-2 items-center'
                         >
