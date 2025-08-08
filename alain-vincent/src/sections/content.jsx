@@ -13,18 +13,18 @@ export default function Content() {
     ]
     return (
         <>
-            <div id="home" className="mt-10 lg:mt-6 mb-8">
+            <section id="home" className="min-h-[80vh] pt-20">
                 <Home />
-            </div>
+            </section>
             {
                 content.map((value, i) => (
-                    <div
+                    <section
                         key={i}
                         id={`${value.id}`}
-                        className="px-3 md:mx-auto mb-6"
+                        className="min-h-[80vh] py-20 px-3 md:mx-auto"
                     >
                         {value.element}
-                    </div>
+                    </section>
                 ))
             }
         </>

@@ -1,21 +1,42 @@
-import React, { useState } from "react";
+import{useState, useEffect} from "react";
 import './../styles/header.css'
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const showNavigation = () => {
     setNavOpen(!navOpen);
   }
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'education', 'projets', 'competences', 'contact'];
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menu = [
-    { name: "Home", link: '#home' },
-    { name: "Education", link: '#education' },
-    { name: "Projets", link: '#projets' },
-    { name: "Competences", link: '#competences' },
-    { name: "Contact", link: '#contact' },
+    { name: "Home", link: '#home', id: 'home' },
+    { name: "Education", link: '#education', id: 'education' },
+    { name: "Projets", link: '#projets', id: 'projets' },
+    { name: "Competences", link: '#competences', id: 'competences' },
+    { name: "Contact", link: '#contact', id: 'contact' },
   ]
 
   return (
-    <nav className="relative h-15 lg:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
+    <nav className="sticky top-0 z-50 h-15 lg:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
       <div className="flex items-center justify-center">
         <a href="#home" className="text-xl font-bold">AV</a>
       </div>
@@ -36,7 +57,7 @@ function Header() {
             menu.map((items, index) => (
               <a
                 key={index}
-                className="cursor-pointer px-2"
+                className={`cursor-pointer px-2 ${activeSection === items.id ? 'text-primary font-bold' : ''}`}
                 href={`${items.link}`}
                 onClick={() => { setNavOpen(false) }}
               >

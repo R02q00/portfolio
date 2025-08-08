@@ -11,6 +11,9 @@
     font-family: "Poppins";
     src: url("./fonts/Poppins-Light.ttf");
 }
+html{
+    scroll-behavior:smooth;
+}
 
 @layer utilities {
     .draw-line {

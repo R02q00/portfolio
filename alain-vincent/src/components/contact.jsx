@@ -7,6 +7,7 @@ const Contact = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" });
+    const [showStatus, setShowStatus] = useState(false);
     const [messageContent, setMessageContent] = useState({
         name: '',
         email: '',
@@ -25,24 +26,43 @@ const Contact = () => {
 
         if (Object.values(validationErrors).every(error => error === "")) {
             setIsSubmitting(true);
-            const formData = new FormData();
-            formData.append("name", messageContent.name);
-            formData.append("email",messageContent.email);
-            formData.append("message", messageContent.message)
+
             try {
+                const formData = new FormData();
+                formData.append("name", messageContent.name);
+                formData.append("email", messageContent.email);
+                formData.append("message", messageContent.message);
                 const response = await fetch("https://formspree.io/f/xrblokgr", {
                     method: "POST",
                     body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
 
-                if (response.status === 200 || response.status === 302) {
+                const data = await response.json();
+
+                if (response.ok) {
                     setSubmitStatus({ success: true, message: "Message envoyé avec succès !" });
                     setMessageContent({ name: "", email: "", message: "" });
+                    setShowStatus(true);
+                    setTimeout(() => {
+                        setShowStatus(false);
+                    }, 5000);
                 } else {
-                    throw new Error("Erreur lors de l'envoi");
+                    const errorMsg = data.error || "Erreur lors de l'envoi";
+                    throw new Error(errorMsg);
                 }
-            } catch (err) {
-                setSubmitStatus({ success: false, message: "Une erreur est survenue. Réessayez plus tard." });
+            } catch (error) {
+                console.log(error);
+                setSubmitStatus({
+                    success: false,
+                    message: error.message || "Une erreur est survenue. Réessayez plus tard."
+                });
+                setShowStatus(true);
+                setTimeout(() => {
+                    setShowStatus(false);
+                }, 5000);
             } finally {
                 setIsSubmitting(false);
             }
@@ -72,22 +92,22 @@ const Contact = () => {
             <p className="text-lg mb-4">Laisser-moi un message ou connectons-nous sur d'autre plateforme.</p>
             <div className="grid w-full md:w-[800px] md:grid-cols-2 gap-3 mt-2">
                 <div className="space-y-5">
-                    <section className="grid">
+                    <div className="grid">
                         <a href="" className="text-lg text-indigo-700 font-bold">Adresse</a>
                         <span className="text-right md:text-left font-medium">Lot 447B/3306 Fosarato Idanda</span>
                         <span className="text-right md:text-left">Fianarantsoa, Madagascar</span>
-                    </section>
+                    </div>
 
-                    <section className="grid">
+                    <div className="grid">
                         <a href="" className="text-md text-indigo-700 font-bold">Email</a>
                         <span className="text-right md:text-left font-medium">alain.vincent069@gmail.com</span>
-                    </section>
+                    </div>
 
-                    <section className="grid">
+                    <div className="grid">
                         <a href="" className="text-lg text-indigo-700 font-bold">Social</a>
-                        <span className="text-right md:text-left">+261 34 64 450 06 (WhatsApp)</span>
+                        <span className="text-right md:text-left">+261 38 08 096 99(WhatsApp)</span>
 
-                    </section>
+                    </div>
                 </div>
 
                 <form onSubmit={handleSendMessage} className="mt-2 sm:mt-8 md:mt-0">
