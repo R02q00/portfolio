@@ -52,7 +52,7 @@ const Home = () => {
                         <img
                             src={photo_profile}
                             alt="Alain Vincent-Developpeur full stack"
-                            className='max-w-xs object-cover rounded-2xl'
+                            className='move-top max-w-xs object-cover rounded-2xl'
                         />
                         <div className='absolute -z-10 w-[320px] h-full bg-indigo-100 rounded-2xl top-3 left-3 lg:top-4 lg:left-4'></div>
                     </div>

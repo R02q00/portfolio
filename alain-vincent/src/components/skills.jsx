@@ -10,7 +10,6 @@ const Skills = () => {
                 "JavaScript",
                 "TypeScript",
                 "Python",
-                "Java"
             ]
         },
         {
@@ -39,7 +38,6 @@ const Skills = () => {
                 "Node.js",
                 "Express",
                 "Django",
-                "Spring Boot",
             ]
         },
         {

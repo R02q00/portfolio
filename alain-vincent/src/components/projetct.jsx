@@ -14,30 +14,30 @@ const Project = () => {
         {
             photo: [n_login],
             title: "Nero",
-            desc: "Une simple application utilise un model IA",
-            stack: ["Next.js", "PostgreSQL", "Django", "Tailwindcss"],
+            desc: "Une application simple utilisant un modèle d'intelligence artificielle.",
+            stack: ["Next.js", "PostgreSQL", "Django", "Tailwind CSS"],
             link: "https://github.com/R02q00/nero.git",
         },
         {
             photo: [d_home],
             title: "Device-Flow",
-            desc: "Une applications de gestion de materiels informatiques",
-            stack: ["React.js", "PostgreSQL", "Node.js", "JWT", "Tailwindcss"],
+            desc: "Une application de gestion du matériel informatique.",
+            stack: ["React.js", "PostgreSQL", "Node.js", "JWT", "Tailwind CSS"],
             link: "https://github.com/R02q00/device-flow.git",
         },
         {
             photo: [s_home],
-            title: "Securité Web",
-            desc: "Hébergement sécurise d'une page web avec integration de certificats SSL",
+            title: "Sécurité Web",
+            desc: "Hébergement sécurisé d'une page web avec intégration de certificats SSL.",
             stack: ["Nginx", "OpenSSL"],
-            link: "https://github.com/R02q00/securite-web.git"
+            link: "https://github.com/R02q00/securite-web.git",
         },
         {
             photo: [w_switch],
             title: "Webcam Switch",
-            desc: "Une application de visualisation entre differents camera",
-            stack: ["Python", "OpenCV", "tkinter"],
-            link: "https://github.com/R02q00/webcam-switch.git"
+            desc: "Application permettant de basculer entre différentes caméras.",
+            stack: ["Python", "OpenCV", "Tkinter"],
+            link: "https://github.com/R02q00/webcam-switch.git",
         }
     ];
 
