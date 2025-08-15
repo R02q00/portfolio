@@ -1,4 +1,4 @@
-import{useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import './../styles/header.css'
 
 function Header() {
@@ -10,7 +10,7 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'education', 'projets', 'competences', 'contact'];
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -51,23 +51,27 @@ function Header() {
           <span className="bg-base-content"></span>
           <span className="bg-base-content"></span>
         </button>
+        <div className={navOpen ? "navlinks-container open" : "navlinks-container hidden"} onClick={() => setNavOpen(false)}>
+          <div className="w-[50%] flex flex-col md:flex-row gap-3 bg-base-100 p-4">
+            {
+              menu.map((items, index) => (
+                <a
+                  key={index}
+                  className={`cursor-pointer px-2 ${activeSection === items.id ? 'text-primary font-bold' : ''}`}
+                  href={`${items.link}`}
+                  onClick={() => setNavOpen(false)}
+                >
+                  {items.name}
+                </a>
 
-        <div className={navOpen ? "navlinks-container open bg-base-100 w-[50%]" : "navlinks-container hidden"}>
-          {
-            menu.map((items, index) => (
-              <a
-                key={index}
-                className={`cursor-pointer px-2 ${activeSection === items.id ? 'text-primary font-bold' : ''}`}
-                href={`${items.link}`}
-                onClick={() => { setNavOpen(false) }}
-              >
-                {items.name}
-              </a>
+              ))
+            }
+          </div>
 
-            ))
-          }
 
         </div>
+
+
 
         <div className="flex items-center">
           <label className="toggle text-base-content">

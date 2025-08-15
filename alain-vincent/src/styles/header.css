@@ -42,19 +42,23 @@
     .humberger.open span:nth-child(3){
         transform: translate(0) rotate(-135deg);
     }
-    .navlinks-container{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
+    .main{
         position: absolute;
         top: 100%;
         right: 0;
-        padding: 10px 20px 10px 20px;
+        width: 100%;
+        height: 100vh;
+    }
+    .navlinks-container{
+        display: flex;
+        justify-content: end;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
         height: 100vh;
         transform: translate(100%);
         transition:  transform 0.3s ease-out;
-        z-index: 100;
     }
     .open{
         transform: translate(0%);

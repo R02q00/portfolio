@@ -1,16 +1,19 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import p_home from '../images/portefolio.png'
 import d_home from '../images/device-flow-home.png'
-import d_loan from '../images/device-flow-loan-list.png'
-import d_list from '../images/device-flow-list.png'
-import s_home from '../images/securite-web.png'
+import s_home from '../images/securite-web1.png'
 import n_login from '../images/nero-login.png'
 import w_switch from '../images/webcam_switch.png'
-import { useState } from 'react';
-
-
 
 const Project = () => {
     const projectList = [
+        {
+            photo: [p_home],
+            title: "Portefolio",
+            desc: "Mon site vitrine pour présenter mes competences et projets",
+            stack: ["React.js", "Tailwind CSS"],
+            link: "https://github.com/R02q00/portefolio.git"
+        },
         {
             photo: [n_login],
             title: "Nero",
