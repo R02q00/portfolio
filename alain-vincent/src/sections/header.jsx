@@ -52,7 +52,7 @@ function Header() {
           <span className="bg-base-content"></span>
         </button>
         <div className={navOpen ? "navlinks-container open" : "navlinks-container hidden"} onClick={() => setNavOpen(false)}>
-          <div className="w-[50%] flex flex-col md:flex-row gap-3 bg-base-100 p-4">
+          <div className="w-[50%] md:w-full flex flex-col md:flex-row gap-3 bg-base-100 p-4 md:p-0">
             {
               menu.map((items, index) => (
                 <a
