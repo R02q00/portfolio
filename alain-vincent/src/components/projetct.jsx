@@ -12,7 +12,7 @@ const Project = () => {
             title: "Portefolio",
             desc: "Mon site vitrine pour présenter mes competences et projets",
             stack: ["React.js", "Tailwind CSS"],
-            link: "https://github.com/R02q00/portefolio.git"
+            link: "https://github.com/R02q00/portfolio.git"
         },
         {
             photo: [n_login],
