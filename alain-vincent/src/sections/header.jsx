@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import { FaRProject } from "react-icons/fa6";
+import { GoHome, GoProject } from "react-icons/go"
+import {IoSchoolOutline} from "react-icons/io5"
+import {FaCode} from "react-icons/fa6"
+import {LuContact} from  "react-icons/lu"
+import {AiOutlineCode} from "react-icons/ai"
 import './../styles/header.css'
 
 function Header() {
@@ -28,17 +34,17 @@ function Header() {
   }, []);
 
   const menu = [
-    { name: "Home", link: '#home', id: 'home' },
-    { name: "Education", link: '#education', id: 'education' },
-    { name: "Projets", link: '#projets', id: 'projets' },
-    { name: "Competences", link: '#competences', id: 'competences' },
-    { name: "Contact", link: '#contact', id: 'contact' },
+    { icon: <GoHome size={20}/>, name: "Acceuil", link: '#home', id: 'home' },
+    { icon: <IoSchoolOutline size={20}/>, name: "Education", link: '#education', id: 'education' },
+    { icon: <GoProject size={20}/>, name: "Projets", link: '#projets', id: 'projets' },
+    { icon: <AiOutlineCode size={20}/>, name: "Competences", link: '#competences', id: 'competences' },
+    { icon: <LuContact size={20}/>, name: "Contact", link: '#contact', id: 'contact' },
   ]
 
   return (
     <nav className="sticky top-0 z-50 h-15 lg:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
       <div className="flex items-center justify-center">
-        <a href="#home" className="text-xl font-bold">AV</a>
+        <a href="#home" className="text-xl font-bold"><FaRProject size={30}/></a>
       </div>
 
       <div className="w-full flex justify-end md:justify-between items-center gap-5">
@@ -52,15 +58,16 @@ function Header() {
           <span className="bg-base-content"></span>
         </button>
         <div className={navOpen ? "navlinks-container open" : "navlinks-container hidden"} onClick={() => setNavOpen(false)}>
-          <div className="w-[50%] md:w-full flex flex-col md:flex-row gap-3 bg-base-100 p-4 md:p-0">
+          <div className="w-[50%] md:w-full flex flex-col md:flex-row gap-5 bg-base-100 p-4 md:p-0">
             {
               menu.map((items, index) => (
                 <a
                   key={index}
-                  className={`cursor-pointer px-2 ${activeSection === items.id ? 'text-primary font-bold' : ''}`}
+                  className={`cursor-pointer flex items-center justify-start gap-2 ${activeSection === items.id ? 'text-primary' : ''}`}
                   href={`${items.link}`}
                   onClick={() => setNavOpen(false)}
                 >
+                  {items.icon}
                   {items.name}
                 </a>
 
