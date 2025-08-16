@@ -13,7 +13,7 @@ export default function Content() {
     ]
     return (
         <>
-            <section id="home" className="min-h-[80vh] pt-20">
+            <section id="home" className="min-h-screen pt-10 flex items-center justify-center">
                 <Home />
             </section>
             {

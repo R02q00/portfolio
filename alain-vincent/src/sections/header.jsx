@@ -41,7 +41,7 @@ function Header() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 h-15 lg:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
+    <nav className="sticky top-0 z-50 h-15 md:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
       <div className="flex items-center justify-center">
         <a href="#home" className="text-xl font-bold"><FaRProject size={30} /></a>
       </div>
