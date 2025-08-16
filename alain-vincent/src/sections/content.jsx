@@ -21,7 +21,7 @@ export default function Content() {
                     <section
                         key={i}
                         id={`${value.id}`}
-                        className="min-h-[80vh] pt-20 px-3 md:mx-auto"
+                        className="pt-20 px-3 md:mx-auto"
                     >
                         {value.element}
                     </section>
