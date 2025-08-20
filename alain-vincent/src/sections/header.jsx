@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaRProject } from "react-icons/fa6";
 import { GoHome as Home, GoProject as Project } from "react-icons/go"
 import { IoSchoolOutline as Education } from "react-icons/io5"
 import { LuContact as Contact } from "react-icons/lu"
