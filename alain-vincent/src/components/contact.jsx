@@ -2,6 +2,8 @@ import { useState } from "react";
 import Validate from "./validate";
 import InputField from "./InputField.jsx";
 import TextAreaField from "./textAreaField.jsx";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { IoMailOutline } from "react-icons/io5";
 
 const Contact = () => {
     const [errors, setErrors] = useState({});
@@ -104,13 +106,47 @@ const Contact = () => {
                     </div>
 
                     <div className="grid">
-                        <a href="" className="text-lg text-indigo-700 font-bold">Social</a>
-                        <span className="text-right md:text-left">+261 38 08 096 99(WhatsApp)</span>
+                        <span className="text-lg text-indigo-700 font-bold">Social</span>
+                        <div className="flex gap-4 pt-2">
+                            <a
+                                href="https://github.com/R02q00"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-indigo-700 transition duration-300"
+                                aria-label="GitHub"
+                            >
+                                <FaGithub size={20} />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alain-razafimandimby"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-700 transition duration-300"
+                                aria-label="LinkedIn"
+                            >
+                                <FaLinkedin size={20} />
+                            </a>
+                            <a
+                                href="https://wa.me/261380809699"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-green-700 transition duration-300"
+                                aria-label="WhatsApp"
+                            >
+                                <FaWhatsapp size={20} />
+                            </a>
+                            <a href="mailto:alain.vincent069@gmail.com"
+                                className="hover:text-indigo-700 transition duration-300"
+                                aria-label="Email"
+                            >
+                                <IoMailOutline size={20}/>
+                            </a>
+                        </div>
 
                     </div>
                 </div>
 
-                <form onSubmit={handleSendMessage} className="mt-2 sm:mt-8 md:mt-0">
+                <form onSubmit={handleSendMessage} className="mt-2 sm:mt-10 md:mt-0">
                     {submitStatus.message && (
                         <p className={`my-3 text-center ${submitStatus.success ? "text-green-600" : "text-red-500"}`}>
                             {submitStatus.message}
