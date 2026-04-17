@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
-import { GoHome as Home, GoProject as Project, GoGlobe } from "react-icons/go"
-import { IoSchoolOutline as Education } from "react-icons/io5"
-import { LuContact as Contact } from "react-icons/lu"
-import { AiOutlineCode as Competences } from "react-icons/ai"
-import { LANGUAGES } from "../constants/index.js";
-import { useTransition } from "react-i18next";
-import './../styles/header.css'
+import { GoHome as Home, GoProject as Project, GoGlobe } from "react-icons/go";
+import { IoSchoolOutline as Education } from "react-icons/io5";
+import { LuContact as Contact } from "react-icons/lu";
+import { AiOutlineCode as Competences } from "react-icons/ai";
+import { LANGUAGES } from "../constants";
+import { useTranslation } from "react-i18next";
+import "./../styles/header.css";
 
-function Header() {
+function Header({isLoading, updateLoading}) {
+  const { t, i18n } = useTranslation();
   const [navOpen, setNavOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [i18n, t] = useTransition();
+  const [activeSection, setActiveSection] = useState("home");
 
   const showNavigation = () => {
-    setNavOpen(!navOpen);
-  }
+    setNavOpen(prev => !prev);
+  };
 
   const handleScroll = () => {
-    const sections = ['home', 'education', 'projets', 'competences', 'contact'];
+    const sections = ["home", "education", "projets", "competences", "contact"];
 
     for (const section of sections) {
       const element = document.getElementById(section);
@@ -31,28 +31,34 @@ function Header() {
     }
   };
 
-  const handleChangeLang = (e) =>{
-      const lang_code = e.target.value;
-      i18n.changelanguage(lang_code)
-  }
+  const handleChangeLanguage = (lang) => {
+    updateLoading();
+    setTimeout(() => {
+      i18n.changeLanguage(lang);
+      updateLoading();
+    }, 200);
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menu = [
-    { icon: <Home size={20} />, name: "Acceuil", link: '#home', id: 'home' },
-    { icon: <Education size={20} />, name: "Education", link: '#education', id: 'education' },
-    { icon: <Project size={20} />, name: "Projets", link: '#projets', id: 'projets' },
-    { icon: <Competences size={20} />, name: "Competences", link: '#competences', id: 'competences' },
-    { icon: <Contact size={20} />, name: "Contact", link: '#contact', id: 'contact' },
-  ]
+  const menus = [
+    { icon: <Home size={20} />, key: "nav.home", link: "#home", id: "home" },
+    { icon: <Education size={20} />, key: "nav.education", link: "#education", id: "education" },
+    { icon: <Project size={20} />, key: "nav.projects", link: "#projets", id: "projets" },
+    { icon: <Competences size={20} />, key: "nav.skills", link: "#competences", id: "competences" },
+    { icon: <Contact size={20} />, key: "nav.contact", link: "#contact", id: "contact" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 h-15 md:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
-      <div className="flex items-center justify-center">
-        <a href="#home" className="text-xl font-bold">AV</a>
+
+      <div className="flex items-center">
+        <a href="#home" className="text-xl font-bold">
+          {t("title")}
+        </a>
       </div>
 
       <div className="w-full flex justify-end md:justify-between items-center gap-5">
@@ -67,33 +73,42 @@ function Header() {
           <span className="bg-base-content"></span>
         </button>
 
-        <div className={`navlinks-container ${navOpen ? "open" : "hidden"}`} onClick={() => setNavOpen(false)}>
+        <div className={`navlinks-container ${navOpen ? "open" : "hidden"}`}>
+
           <div className="w-[50%] md:w-full flex flex-col md:flex-row gap-4 md:gap-6 bg-base-100 p-4 md:p-0">
-            {
-              menu.map((items, index) => (
-                <a
-                  key={index}
-                  className={`cursor-pointer flex items-center justify-start gap-1 md:gap-2 ${activeSection === items.id ? 'text-primary' : ''}`}
-                  href={`${items.link}`}
-                  onClick={() => setNavOpen(false)}
-                >
-                  {items.icon}
-                  {items.name}
-                </a>
 
-              ))
-            }
+            {menus.map((item) => (
+              <a
+                key={item.id}
+                className={`cursor-pointer flex items-center gap-2 ${activeSection === item.id ? "text-primary" : ""}`}
+                href={item.link}
+                onClick={() => setNavOpen(false)}
+              >
+                {item.icon}
+                <h2>{t(item.key)}</h2>
+              </a>
+            ))}
+
           </div>
-
-
         </div>
 
+        {/* Language Switcher */}
         <div className="flex items-center gap-3">
+
           <div className="hidden md:block dropdown dropdown-center">
-            <div tabIndex={0} role="button" className="btn btn-xs btn-circle bg-transparent border-base-content"><GoGlobe /></div>
-            <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-50 p-2 shadow-sm">
-              {LANGUAGES.map((value) => (
-                <li key={value.id} className="p-1 cursor-pointer">{value.label}</li>
+            <div tabIndex={0} role="button" className="btn btn-xs btn-circle bg-transparent border-base-content">
+              <GoGlobe />
+            </div>
+
+            <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm">
+              {LANGUAGES.map((lang) => (
+                <li
+                  key={lang.id}
+                  className="p-1 cursor-pointer"
+                  onClick={() => handleChangeLanguage(lang.code)}
+                >
+                  {lang.label}
+                </li>
               ))}
             </ul>
           </div>
