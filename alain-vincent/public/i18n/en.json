@@ -1,0 +1,10 @@
+{
+  "title": "AV",
+  "nav": {
+    "home": "Home",
+    "education": "Education",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  }
+}

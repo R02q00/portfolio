@@ -62,7 +62,7 @@ const Skills = () => {
             categories: "Conception",
             icon: <FaProjectDiagram className="text-error" />,
             list: [
-                "UML",
+                "2TUP",
                 "Merise",
             ]
         },

@@ -8,8 +8,8 @@ const Story = () => {
     const story = [
         {
             name: "Ecole Nationale d'Informatique (ENI)",
-            level: "Licence Professionnelle en Informatique Generale (IG)",
-            desc: "Actuellement en Troisieme année.",
+            level: "Master Professionnelle en Informatique Generale (IG)",
+            desc: "Actuellement en Master 1.",
             statut: "en cours",
             year: "2022 - Présent",
             icon: <FiBook className="text-blue-500" />,
@@ -26,7 +26,7 @@ const Story = () => {
         },
         {
             name: "Collège de Référence Idanda",
-            level: "Brevet d'Études du Premier Cycle(BEPC)",
+            level: "Brevet d'Études du Premier Cycle (BEPC)",
             desc: "Parcours général avec excellente maîtrise des matières scientifiques.",
             statut: "Obtenu",
             year: "2019",

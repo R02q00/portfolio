@@ -1,0 +1,10 @@
+{
+  "title": "AV",
+  "nav": {
+    "home": "Accueil",
+    "education": "Éducation",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  }
+}
