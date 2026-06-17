@@ -1,0 +1,109 @@
+{
+  "title": "AV",
+  "nav": {
+    "home": "Accueil",
+    "education": "Éducation",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour je suis, ",
+    "description": "Étudiant en Ingénierie Informatique, je suis actuellement à la recherche d’opportunités afin de développer mes compétences et d’acquérir de l’expérience dans le monde professionnel.",
+    "contact": "Me contacter",
+    "downloadResume": "Télécharger mon CV",
+    "profileAlt": "Alain Vincent - Développeur Full Stack"
+  },
+  "story": {
+    "title": "Parcours Académique",
+    "goToStep": "Aller à l'étape {{step}}",
+    "photoAlt": "photo {{index}}",
+    "status": {
+      "ongoing": "en cours",
+      "completed": "obtenu"
+    },
+    "items": [
+      {
+        "name": "Ecole Nationale d'Informatique (ENI)",
+        "level": "Master Professionnel en Informatique Générale (IG)",
+        "desc": "Actuellement en Master 1.",
+        "year": "2022 - Présent"
+      },
+      {
+        "name": "Lycée Raherivelo Ramamonjy",
+        "level": "Baccalauréat Scientifique",
+        "desc": "Obtention du diplôme d'enseignement général, option S.",
+        "year": "2022"
+      },
+      {
+        "name": "Collège de Référence Idanda",
+        "level": "Brevet d'Études du Premier Cycle (BEPC)",
+        "desc": "Parcours général avec excellente maîtrise des matières scientifiques.",
+        "year": "2019"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "sourceCode": "Code",
+    "liveDemo": "Démo",
+    "photoAlt": "Capture d'écran du projet {{title}}",
+    "items": {
+      "portfolio": {
+        "description": "Mon site vitrine pour présenter mes compétences et projets."
+      },
+      "nero": {
+        "description": "Une application simple utilisant un modèle d'intelligence artificielle."
+      },
+      "deviceFlow": {
+        "description": "Une application de gestion du matériel informatique."
+      },
+      "webSecurity": {
+        "description": "Hébergement sécurisé d'une page web avec intégration de certificats SSL."
+      },
+      "webcamSwitch": {
+        "description": "Application permettant de basculer entre différentes caméras."
+      }
+    }
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "categories": {
+      "languages": "Langages",
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "database": "Bases de données",
+      "tools": "Outils",
+      "design": "Conception"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Laissez-moi un message ou connectons-nous sur d'autres plateformes.",
+    "address": "Adresse",
+    "email": "Email",
+    "social": "Social",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer"
+    },
+    "status": {
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur est survenue. Réessayez plus tard.",
+      "sendError": "Erreur lors de l'envoi"
+    }
+  },
+  "validation": {
+    "requiredName": "Le nom est requis",
+    "requiredEmail": "L'email est requis",
+    "invalidEmail": "Adresse email invalide",
+    "requiredMessage": "Le message est requis"
+  },
+  "footer": {
+    "copyright": "Copyright © {{year}} - Tous droits réservés par {{name}}"
+  }
+
+}

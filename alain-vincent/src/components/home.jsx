@@ -1,31 +1,33 @@
 import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa'
 import photo_profile from '../images/profil.jpg'
+import { useTranslation } from "react-i18next";
 
-const Home = () => {
+function Home() {
+    const { t } = useTranslation();
     return (
         <section className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 justify-between items-center">
 
                 <div className="space-y-4 mb-8 md:mb-0">
                     <h1 className="text-4xl sm:text-3xl md:text-4xl font-medium text-center md:text-left">
-                        Bonjour, je suis <span className="text-indigo-600">Alain Vincent</span>
+                        {t("hero.greeting")}<span className="text-indigo-600">Alain Vincent</span>
                     </h1>
                     <p className="text-2xl max-w-lg text-center md:text-left">
-                        Étudiant en Ingénierie Informatique, je suis actuellement à la recherche d’opportunités afin de développer mes compétences et d’acquérir de l’expérience dans le monde professionnel.
+                        {t("hero.description")}
                     </p>
                     <div className="flex justify-center md:justify-start gap-4 pt-4">
                         <a
                             href="#contact"
                             className="p-2 md:px-4 md:py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition duration-300"
                         >
-                            Me contacter
+                            {t("hero.contact")}
                         </a>
                         <a
                             href="/CV_RAZAFIMANDIMBY_Mamihasina_Alain_Vincent.pdf"
                             download
                             className="disabled p-2 md:px-4 md:py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg hover:border-indigo-50 transition duration-300 flex gap-2 items-center"
                         >
-                            <FaFileDownload /> Télécharger mon CV
+                            <FaFileDownload /> {t("hero.downloadResume")}
                         </a>
                     </div>
                     <div className="flex gap-4 pt-6">
@@ -54,7 +56,7 @@ const Home = () => {
                     <div className="relative">
                         <img
                             src={photo_profile}
-                            alt="Alain Vincent - Développeur Full Stack"
+                            alt={t("hero.profileAlt")}
                             className="move-top max-w-xs object-cover rounded-2xl"
                         />
                         <div className="absolute -z-10 w-[320px] h-full bg-indigo-100 rounded-2xl top-3 left-3 lg:top-4 lg:left-4"></div>

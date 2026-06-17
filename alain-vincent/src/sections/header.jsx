@@ -3,11 +3,10 @@ import { GoHome as Home, GoProject as Project, GoGlobe } from "react-icons/go";
 import { IoSchoolOutline as Education } from "react-icons/io5";
 import { LuContact as Contact } from "react-icons/lu";
 import { AiOutlineCode as Competences } from "react-icons/ai";
-import { LANGUAGES } from "../constants";
 import { useTranslation } from "react-i18next";
 import "./../styles/header.css";
 
-function Header({isLoading, updateLoading}) {
+function Header() {
   const { t, i18n } = useTranslation();
   const [navOpen, setNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -32,11 +31,8 @@ function Header({isLoading, updateLoading}) {
   };
 
   const handleChangeLanguage = (lang) => {
-    updateLoading();
-    setTimeout(() => {
-      i18n.changeLanguage(lang);
-      updateLoading();
-    }, 200);
+    console.log(lang);
+    i18n.changeLanguage(lang);
   };
 
   useEffect(() => {
@@ -93,23 +89,16 @@ function Header({isLoading, updateLoading}) {
         </div>
 
         {/* Language Switcher */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 ">
 
           <div className="hidden md:block dropdown dropdown-center">
             <div tabIndex={0} role="button" className="btn btn-xs btn-circle bg-transparent border-base-content">
               <GoGlobe />
             </div>
 
-            <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm">
-              {LANGUAGES.map((lang) => (
-                <li
-                  key={lang.id}
-                  className="p-1 cursor-pointer"
-                  onClick={() => handleChangeLanguage(lang.code)}
-                >
-                  {lang.label}
-                </li>
-              ))}
+            <ul className="dropdown-content menu bg-base-100 rounded-box z-10 w-50 p-2 shadow-sm">
+              <li className="p-1 cursor-pointer" onClick={() => handleChangeLanguage("en")}>English</li>
+              <li className="p-1 cursor-pointer" onClick={() => handleChangeLanguage("fr")}>French</li>
             </ul>
           </div>
 

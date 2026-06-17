@@ -18,11 +18,7 @@ export default function Content() {
             </section>
             {
                 content.map((value, i) => (
-                    <section
-                        key={i}
-                        id={`${value.id}`}
-                        className="pt-20 px-3 md:mx-auto"
-                    >
+                    <section key={i} id={`${value.id}`} className="pt-20 px-3 md:mx-auto">
                         {value.element}
                     </section>
                 ))

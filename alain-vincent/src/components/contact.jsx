@@ -4,6 +4,7 @@ import InputField from "./InputField.jsx";
 import TextAreaField from "./textAreaField.jsx";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
     const [errors, setErrors] = useState({});
@@ -15,6 +16,7 @@ const Contact = () => {
         email: '',
         message: ''
     });
+    const { t } = useTranslation();
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -23,7 +25,7 @@ const Contact = () => {
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
-        const validationErrors = Validate(messageContent);
+        const validationErrors = Validate(messageContent, t);
         setErrors(validationErrors);
 
         if (Object.values(validationErrors).every(error => error === "")) {
@@ -37,34 +39,25 @@ const Contact = () => {
                 const response = await fetch("https://formspree.io/f/xrblokgr", {
                     method: "POST",
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 const data = await response.json();
 
                 if (response.ok) {
-                    setSubmitStatus({ success: true, message: "Message envoyé avec succès !" });
+                    setSubmitStatus({ success: true, message: t("contact.status.success") });
                     setMessageContent({ name: "", email: "", message: "" });
                     setShowStatus(true);
-                    setTimeout(() => {
-                        setShowStatus(false);
-                    }, 5000);
+                    setTimeout(() => { setShowStatus(false); }, 5000);
                 } else {
-                    const errorMsg = data.error || "Erreur lors de l'envoi";
+                    const errorMsg = t("contact.status.sendError");
                     throw new Error(errorMsg);
                 }
             } catch (error) {
                 console.log(error);
-                setSubmitStatus({
-                    success: false,
-                    message: error.message || "Une erreur est survenue. Réessayez plus tard."
-                });
+                setSubmitStatus({ success: false, message: error.message || t("contact.status.error") });
                 setShowStatus(true);
-                setTimeout(() => {
-                    setShowStatus(false);
-                }, 5000);
+                setTimeout(() => { setShowStatus(false); }, 5000);
             } finally {
                 setIsSubmitting(false);
             }
@@ -79,7 +72,7 @@ const Contact = () => {
 
         return (
             <button
-                className={`border px-4 py-2 font-bold rounded-md transition-colors duration-300 ${variants[variant]}`}
+                className={`border px-4 py-2 w-full md:w-[50%] font-bold rounded-md transition-colors duration-300 ${variants[variant]}`}
                 type="submit"
                 disabled={isSubmitting}
             >
@@ -90,23 +83,27 @@ const Contact = () => {
 
     return (
         <>
-            <h1 className="text-2xl md:text-3xl text-center font-bold">Contact</h1>
-            <p className="text-lg mb-4">Laisser-moi un message ou connectons-nous sur d'autre plateforme.</p>
+            <h1 className="text-2xl md:text-3xl text-center font-bold mb-4">
+                {t("contact.title")}
+            </h1>
+            <p className="text-lg mb-4">
+                {t("contact.subtitle")}
+            </p>
             <div className="grid w-full md:w-[800px] md:grid-cols-2 gap-3 mt-2">
                 <div className="space-y-5">
                     <div className="grid">
-                        <a href="" className="text-lg text-indigo-700 font-bold">Adresse</a>
+                        <a href="" className="text-lg text-indigo-700 font-bold">{t("contact.address")}</a>
                         <span className="text-right md:text-left font-medium">Lot 447B/3306 Fosarato Idanda</span>
                         <span className="text-right md:text-left">Fianarantsoa, Madagascar</span>
                     </div>
 
                     <div className="grid">
-                        <a href="" className="text-md text-indigo-700 font-bold">Email</a>
-                        <span className="text-right md:text-left font-medium">alain.vincent069@gmail.com</span>
+                        <a href="" className="text-md text-indigo-700 font-bold">{t("contact.email")}</a>
+                        <span className="text-right md:text-left font-medium">alainvincent.razafimandimby@gmail.com</span>
                     </div>
 
                     <div className="grid">
-                        <span className="text-lg text-indigo-700 font-bold">Social</span>
+                        <span className="text-lg text-indigo-700 font-bold">{t("contact.social")}</span>
                         <div className="flex gap-4 pt-2">
                             <a
                                 href="https://github.com/R02q00"
@@ -139,7 +136,7 @@ const Contact = () => {
                                 className="hover:text-indigo-700 transition duration-300"
                                 aria-label="Email"
                             >
-                                <IoMailOutline size={20}/>
+                                <IoMailOutline size={20} />
                             </a>
                         </div>
 
@@ -155,7 +152,7 @@ const Contact = () => {
                     <div className="flex flex-col gap-6">
                         <InputField
                             id="name"
-                            label="Name"
+                            label={t("contact.form.name")}
                             type="text"
                             value={messageContent.name}
                             onChange={handleChange}
@@ -163,7 +160,7 @@ const Contact = () => {
                         />
                         <InputField
                             id="email"
-                            label="Email"
+                            label={t("contact.form.email")}
                             type="email"
                             value={messageContent.email}
                             onChange={handleChange}
@@ -171,15 +168,15 @@ const Contact = () => {
                         />
                         <TextAreaField
                             id="message"
-                            label="Message"
+                            label={t("contact.form.message")}
                             value={messageContent.message}
                             onChange={handleChange}
                             error={errors.message}
                         />
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-4 flex">
                         <Button variant="indigo" >
-                            Envoyer
+                            {t("contact.form.send")}
                         </Button>
                     </div>
                 </form>

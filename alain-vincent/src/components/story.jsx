@@ -3,33 +3,36 @@ import { FiBook, FiAward, FiCheckCircle, FiClock } from "react-icons/fi";
 import eni from '../images/story/eni.png';
 import lycee from '../images/story/lycee_2.jpg';
 import college from '../images/story/cri_2.jpg';
+import { useTranslation } from "react-i18next";
 
 const Story = () => {
+    const { t } = useTranslation();
+
     const story = [
         {
-            name: "Ecole Nationale d'Informatique (ENI)",
-            level: "Master Professionnelle en Informatique Generale (IG)",
-            desc: "Actuellement en Master 1.",
-            statut: "en cours",
-            year: "2022 - Présent",
+            name: t("story.items.0.name"),
+            level: t("story.items.0.level"),
+            desc: t("story.items.0.desc"),
+            year: t("story.items.0.year"),
+            statut: "ongoing",
             icon: <FiBook className="text-blue-500" />,
             image: eni
         },
         {
-            name: "Lycée Raherivelo Ramamonjy",
-            level: "Baccalauréat Scientifique",
-            desc: "Obtention de diplôme d'ensegnement generale Option S",
-            statut: "Obtenu",
-            year: "2022",
+            name: t("story.items.1.name"),
+            level: t("story.items.1.level"),
+            desc: t("story.items.1.desc"),
+            year: t("story.items.1.year"),
+            statut: "completed",
             icon: <FiAward className="text-green-600" />,
             image: lycee
         },
         {
-            name: "Collège de Référence Idanda",
-            level: "Brevet d'Études du Premier Cycle (BEPC)",
-            desc: "Parcours général avec excellente maîtrise des matières scientifiques.",
-            statut: "Obtenu",
-            year: "2019",
+            name: t("story.items.2.name"),
+            level: t("story.items.2.level"),
+            desc: t("story.items.2.desc"),
+            year: t("story.items.2.year"),
+            statut: "completed",
             icon: <FiCheckCircle className="text-purple-600" />,
             image: college
         }
@@ -50,9 +53,14 @@ const Story = () => {
     const Statut = ({ status }) => {
         return (
             <div className="mt-4 flex justify-end">
-                <div className={`badge gap-2 ${status === "en cours" ? "badge-info badge-outline" : "badge-success badge-outline"}`}>
-                    {status === "en cours" ? <FiClock /> : <FiCheckCircle />}
-                    {status.charAt(0).toUpperCase() + status.slice(1)}
+                <div
+                    className={`badge gap-2 ${status === "ongoing"
+                            ? "badge-info badge-outline"
+                            : "badge-success badge-outline"
+                        }`}
+                >
+                    {status === "ongoing" ? <FiClock /> : <FiCheckCircle />}
+                    {t(`story.status.${status}`)}
                 </div>
             </div>
         );
@@ -60,17 +68,17 @@ const Story = () => {
 
     return (
         <div className="">
-            <h2 className="text-center text-3xl font-bold mb-6">Parcours Académique 🎓</h2>
+            <h2 className="text-center text-3xl font-bold mb-6">{t('story.title')}</h2>
             <div className="grid md:grid-cols-2">
 
                 {/* Image Slider Section */}
                 <div className="md:w-2/3 flex flex-col items-center justify-center">
                     <div className="w-full h-64 md:h-96 relative overflow-hidden rounded-xl shadow-lg">
-                        {story.map((item, index) => (
+                        {story.map((story, index) => (
                             <img
                                 key={index}
-                                src={item.image}
-                                alt={`photo ${index + 1}`}
+                                src={story.image}
+                                alt={t("story.photoAlt", { index: index + 1 })}
                                 className={`absolute w-full h-full object-cover transition-opacity duration-500 ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}
                             />
                         ))}
@@ -85,7 +93,7 @@ const Story = () => {
                                     setActiveStory(index);
                                 }}
                                 className={`size-4 rounded-full transition-all ${index === currentIndex ? 'bg-indigo-700 w-8' : 'bg-gray-300'}`}
-                                aria-label={`Aller à l'étape ${index + 1}`}
+                                aria-label={t("story.goToStep", { step: index + 1 })}
                             />
                         ))}
                     </div>
@@ -94,7 +102,7 @@ const Story = () => {
                 {/* Timeline Section */}
                 <div className="relative">
 
-                    {story.map((item, index) => (
+                    {story.map((story, index) => (
                         <div
                             key={index}
                             className={`relative mb-6 pl-5 transition-all duration-300 ${activeStory === index ? 'scale-100' : 'opacity-80'}`}
@@ -108,18 +116,17 @@ const Story = () => {
                             </div>
                             <div className={`p-4 md:p-6 rounded-lg shadow-md ${activeStory === index ? 'bg-white border-l-4 border-indigo-600' : 'bg-gray-50'}`}>
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="text-lg font-bold text-indigo-800">{item.name}</h3>
+                                    <h3 className="text-lg font-bold text-indigo-800">{story.name}</h3>
                                 </div>
-                                <span className="text-sm text-gray-500">{item.year}</span>
+                                <span className="text-sm text-gray-500">{story.year}</span>
 
-                                <p className="text-indigo-600 font-medium">{item.level}</p>
-                                {item.desc && <p className="mt-2 text-gray-700">{item.desc}</p>}
-                                <Statut status={item.statut} />
+                                <p className="text-indigo-600 font-medium">{story.level}</p>
+                                {story.desc && <p className="mt-2 text-gray-700">{story.desc}</p>}
+                                <Statut status={story.statut} />
                             </div>
                         </div>
                     ))}
                 </div>
-
 
             </div>
         </div>

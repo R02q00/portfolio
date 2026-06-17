@@ -1,18 +1,12 @@
 import Header from './sections/header';
 import Footer from './sections/footer';
 import Content from './sections/content';
+import "./i18n.js"
 import './App.css'
-import { useState } from 'react';
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  
-  const updateLoading = () => {
-    setIsLoading(!isLoading);
-  }
-
+function App() {
   return (
-    <div className={`${isLoading ? 'fade' : 'fade show'} min-h-screen flex flex-col `}>
+    <div className="min-h-screen flex flex-col">
       <Header />
       <Content />
       <Footer />
