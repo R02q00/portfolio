@@ -5,7 +5,8 @@ import TextAreaField from "./textAreaField.jsx";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-const url = import.meta.env.VITE_URL_FORMESPREE;
+const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 const Contact = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,16 +29,15 @@ const Contact = () => {
         const validationErrors = Validate(messageContent, t);
         setErrors(validationErrors);
 
-        if (Object.values(validationErrors).every(error => error === "")) {
+        if (Object.values(validationErrors).every(error => error === null)) {
             setIsSubmitting(true);
-
             try {
                 const formData = new FormData();
                 formData.append("name", messageContent.name);
                 formData.append("email", messageContent.email);
                 formData.append("message", messageContent.message);
 
-                const response = await fetch(`${url}`, {
+                const response = await fetch(`${endpoint}`, {
                     method: "POST",
                     body: formData,
                     headers: { 'Accept': 'application/json' }
