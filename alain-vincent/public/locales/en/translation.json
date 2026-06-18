@@ -1,0 +1,108 @@
+{
+  "title": "AV",
+  "nav": {
+    "home": "Home",
+    "education": "Education",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm ",
+    "description": "Computer Engineering student, currently seeking opportunities to develop my skills and gain professional experience in the industry.",
+    "contact": "Contact me",
+    "downloadResume": "Download My Resume",
+    "profileAlt": "Alain Vincent - Full Stack Developer"
+  },
+  "story": {
+    "title": "Academic Journey",
+    "goToStep": "Go to step {{step}}",
+    "photoAlt": "photo {{index}}",
+    "status": {
+      "ongoing": "ongoing",
+      "completed": "completed"
+    },
+    "items": [
+      {
+        "name": "National School of Computer Science (ENI)",
+        "level": "Professional Master's Degree in General Computer Science",
+        "desc": "Currently in the first year of the Master's program.",
+        "year": "2025 - Present"
+      },
+      {
+        "name": "Raherivelo Ramamonjy High School",
+        "level": "Scientific Baccalaureate",
+        "desc": "Obtained the general secondary education diploma, Science specialization.",
+        "year": "2022-2023"
+      },
+      {
+        "name": "Idanda Reference Middle School",
+        "level": "Junior Secondary School Certificate (BEPC)",
+        "desc": "General curriculum with excellent proficiency in scientific subjects.",
+        "year": "2019"
+      }
+    ]
+  },
+  "projects": {
+    "title": "My Projects",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "photoAlt": "Screenshot of {{title}} project",
+    "items": {
+      "portfolio": {
+        "description": "My portfolio website showcasing my skills and projects."
+      },
+      "nero": {
+        "description": "A simple application powered by an artificial intelligence model."
+      },
+      "deviceFlow": {
+        "description": "An application for managing IT equipment."
+      },
+      "webSecurity": {
+        "description": "Secure hosting of a web page with SSL certificate integration."
+      },
+      "webcamSwitch": {
+        "description": "Application for switching between multiple cameras."
+      }
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "categories": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "database": "Databases",
+      "tools": "Tools",
+      "design": "Software Design"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Leave me a message or connect with me on other platforms.",
+    "address": "Address",
+    "email": "Email",
+    "social": "Social",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    },
+    "status": {
+      "success": "Message sent successfully!",
+      "error": "An error occurred. Please try again later.",
+      "sendError": "Failed to send message"
+    }
+  },
+  "validation": {
+    "requiredName": "Name is required",
+    "requiredEmail": "Email is required",
+    "invalidEmail": "Invalid email address",
+    "requiredMessage": "Message is required"
+  },
+  "footer": {
+    "copyright": "Copyright © {{year}} - All rights reserved by {{name}}"
+  }
+}

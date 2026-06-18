@@ -4,49 +4,51 @@ import d_home from '../images/device-flow-home.png'
 import s_home from '../images/securite-web1.png'
 import n_login from '../images/nero-login.png'
 import w_switch from '../images/webcam_switch.png'
+import { useTranslation } from 'react-i18next';
 
 const Project = () => {
+    const {t} = useTranslation();
     const projectList = [
         {
             photo: [p_home],
-            title: "Portefolio",
-            desc: "Mon site vitrine pour présenter mes competences et projets",
+            title: "Portfolio",
+            desc: t("projects.items.portfolio.description"),
             stack: ["React.js", "Tailwind CSS"],
             link: "https://github.com/R02q00/portfolio.git"
         },
         {
             photo: [n_login],
             title: "Nero",
-            desc: "Une application simple utilisant un modèle d'intelligence artificielle.",
+            desc: t("projects.items.nero.description"),
             stack: ["Next.js", "PostgreSQL", "Django", "Tailwind CSS"],
-            link: "https://github.com/R02q00/nero.git",
+            link: "https://github.com/R02q00/nero.git"
         },
         {
             photo: [d_home],
             title: "Device-Flow",
-            desc: "Une application de gestion du matériel informatique.",
+            desc: t("projects.items.deviceFlow.description"),
             stack: ["React.js", "PostgreSQL", "Node.js", "JWT", "Tailwind CSS"],
-            link: "https://github.com/R02q00/device-flow.git",
+            link: "https://github.com/R02q00/device-flow.git"
         },
         {
             photo: [s_home],
-            title: "Sécurité Web",
-            desc: "Hébergement sécurisé d'une page web avec intégration de certificats SSL.",
+            title: "Web Security",
+            desc: t("projects.items.webSecurity.description"),
             stack: ["Nginx", "OpenSSL"],
-            link: "https://github.com/R02q00/securite-web.git",
+            link: "https://github.com/R02q00/securite-web.git"
         },
         {
             photo: [w_switch],
             title: "Webcam Switch",
-            desc: "Application permettant de basculer entre différentes caméras.",
+            desc: t("projects.items.webcamSwitch.description"),
             stack: ["Python", "OpenCV", "Tkinter"],
-            link: "https://github.com/R02q00/webcam-switch.git",
+            link: "https://github.com/R02q00/webcam-switch.git"
         }
     ];
 
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">Mes Projets</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">{t("projects.title")}</h2>
             <div className="grid md:grid-cols-2 gap-6 py-2">
                 {projectList.map((project, index) => (
                     <div

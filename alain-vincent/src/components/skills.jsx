@@ -1,71 +1,45 @@
 import { useEffect, useState } from 'react';
 import { FaCode, FaServer, FaDatabase, FaTools, FaProjectDiagram, FaLaptopCode } from 'react-icons/fa';
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci"
-const Skills = () => {
+import { useTranslation } from 'react-i18next';
+function Skills() {
+    const { t } = useTranslation();
     const skillsData = [
         {
-            categories: "Langages",
+            categories: t("skills.categories.languages"),
             icon: <FaCode className="text-primary" />,
-            list: [
-                "JavaScript",
-                "TypeScript",
-                "Python",
-            ]
+            list: ["JavaScript", "TypeScript", "Python"]
         },
         {
-            categories: "Frontend",
+            categories: t("skills.categories.frontend"),
             icon: <FaCode className="text-secondary" />,
-            list: [
-                "HTML5",
-                "CSS3",
-                "React.js",
-                "Next.js",
-                "Tailwind CSS",
-            ]
+            list: ["HTML5", "CSS3", "React.js", "Next.js", "Tailwind CSS"]
         },
         {
-            categories: "Mobile",
+            categories: t("skills.categories.mobile"),
             icon: <FaCode className="text-accent" />,
-            list: [
-                "React Native",
-                "Expo"
-            ]
+            list: ["React Native", "Expo"]
         },
         {
-            categories: "Backend",
+            categories: t("skills.categories.backend"),
             icon: <FaServer className="text-info" />,
-            list: [
-                "Node.js",
-                "Express",
-                "Django",
-            ]
+            list: ["Node.js", "Express", "Django"]
         },
         {
-            categories: "Bases de données",
+            categories: t("skills.categories.database"),
             icon: <FaDatabase className="text-success" />,
-            list: [
-                "PostgreSQL",
-                "MySQL",
-                "SQL"
-            ]
+            list: ["PostgreSQL", "MySQL", "SQL"]
         },
         {
-            categories: "Outils",
+            categories: t("skills.categories.tools"),
             icon: <FaTools className="text-warning" />,
-            list: [
-                "Git & GitHub",
-                "Docker",
-                "Vercel/Netlify",
-            ]
+            list: ["Git & GitHub", "Docker", "Vercel/Netlify"]
         },
         {
-            categories: "Conception",
+            categories: t("skills.categories.design"),
             icon: <FaProjectDiagram className="text-error" />,
-            list: [
-                "2TUP",
-                "Merise",
-            ]
-        },
+            list: ["2TUP", "Merise"]
+        }
     ];
     const [logo, setLogo] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -80,7 +54,7 @@ const Skills = () => {
 
     const prevLogo = () => {
         setActiveTech(prevIndex => prevIndex === 0 ? logo.length - 1 : prevIndex - 1);
-        setCurrentIndex(prevIndex => prevIndex === 0 ? logo.length - 1: prevIndex - 1);
+        setCurrentIndex(prevIndex => prevIndex === 0 ? logo.length - 1 : prevIndex - 1);
     };
 
     const nextLogo = () => {
@@ -90,7 +64,7 @@ const Skills = () => {
 
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Mes Compétences</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t("skills.title")}</h2>
 
             <div className="grid md:grid-cols-3 gap-6 mb-4">
                 {skillsData.map((category, index) => (
@@ -124,7 +98,7 @@ const Skills = () => {
                 ))}
             </div>
 
-           {/*<div className='relative max-w-xl mx-auto flex flex-col justify-center items-center'>
+            {/*<div className='relative max-w-xl mx-auto flex flex-col justify-center items-center'>
 
                 <div className='overfolw-hidden flex justify-center items-center'>
                     {

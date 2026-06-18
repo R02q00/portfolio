@@ -1,24 +1,24 @@
-const Validate = (values) => {
+const Validate = (values, t) => {
     const errors = {};
     
     if (!values.name.trim()) {
-        errors.name = "Veuillez saisir votre nom!";
+        errors.name = t("validation.requiredName");
     } else {
-        errors.name = "";
+        errors.name = null;
     }
     
     if (!values.email) {
-        errors.email = "Veuillez saisir votre email";
+        errors.email = t("validation.requiredEmail");
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-        errors.email = "Email invalide";
+        errors.email = t("validation.invalidEmail");
     } else {
-        errors.email = "";
+        errors.email = null;
     }
     
     if (!values.message.trim()) {
-        errors.message = "Votre message ici";
+        errors.message = t("validation.requiredMessage");
     } else {
-        errors.message = "";
+        errors.message = null;
     }
     
     return errors;
