@@ -5,7 +5,7 @@ import TextAreaField from "./textAreaField.jsx";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-
+const url = import.meta.env.VITE_URL_FORMESPREE;
 const Contact = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,7 +36,8 @@ const Contact = () => {
                 formData.append("name", messageContent.name);
                 formData.append("email", messageContent.email);
                 formData.append("message", messageContent.message);
-                const response = await fetch("https://formspree.io/f/xrblokgr", {
+
+                const response = await fetch(`${url}`, {
                     method: "POST",
                     body: formData,
                     headers: { 'Accept': 'application/json' }

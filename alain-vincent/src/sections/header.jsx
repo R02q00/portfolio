@@ -4,6 +4,7 @@ import { IoSchoolOutline as Education } from "react-icons/io5";
 import { LuContact as Contact } from "react-icons/lu";
 import { AiOutlineCode as Competences } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
+import { LANGUAGES } from "../constants"
 import "./../styles/header.css";
 
 function Header() {
@@ -31,8 +32,8 @@ function Header() {
   };
 
   const handleChangeLanguage = (lang) => {
-    console.log(lang);
     i18n.changeLanguage(lang);
+    document.activeElement?.blur();
   };
 
   useEffect(() => {
@@ -95,11 +96,19 @@ function Header() {
             <div tabIndex={0} role="button" className="btn btn-xs btn-circle bg-transparent border-base-content">
               <GoGlobe />
             </div>
-
-            <ul className="dropdown-content menu bg-base-100 rounded-box z-10 w-50 p-2 shadow-sm">
-              <li className="p-1 cursor-pointer" onClick={() => handleChangeLanguage("en")}>English</li>
-              <li className="p-1 cursor-pointer" onClick={() => handleChangeLanguage("fr")}>French</li>
+            <ul className="dropdown-content menu bg-base-100 rounded-box w-40 p-2 shadow-sm">
+              {LANGUAGES.map((lang, index) => (
+                <li key={index} className="p-1 cursor-pointer">
+                  <button
+                  className=""
+                  onClick={() => { handleChangeLanguage(lang.code) }}
+                  >
+                    {lang.label}
+                  </button>
+                </li>
+              ))}
             </ul>
+
           </div>
 
           <label className="toggle text-base-content">
