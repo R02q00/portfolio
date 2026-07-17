@@ -2,7 +2,7 @@
 @tailwind utilities;
 
 @plugin "daisyui" {
-    themes: dark --default, light --preferdark;
+    themes: light --default, dark --preferdark;
 }
 
 @font-face {
