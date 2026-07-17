@@ -18,15 +18,14 @@ function Header() {
 
   const handleScroll = () => {
     const sections = ["home", "education", "projets", "competences", "contact"];
-
+    const middle = window.innerHeight / 2;
     for (const section of sections) {
       const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 100 && rect.bottom >= 100) {
-          setActiveSection(section);
-          break;
-        }
+      if (!element) continue;
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= middle && rect.bottom >= middle) {
+        setActiveSection(section);
+        break;
       }
     }
   };
@@ -38,7 +37,9 @@ function Header() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const menus = [
@@ -100,8 +101,8 @@ function Header() {
               {LANGUAGES.map((lang, index) => (
                 <li key={index} className="p-1 cursor-pointer">
                   <button
-                  className=""
-                  onClick={() => { handleChangeLanguage(lang.code) }}
+                    className=""
+                    onClick={() => { handleChangeLanguage(lang.code) }}
                   >
                     {lang.label}
                   </button>
