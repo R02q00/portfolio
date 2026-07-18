@@ -133,7 +133,7 @@ const Contact = () => {
                             >
                                 <FaWhatsapp size={20} />
                             </a>
-                            <a href="mailto:alain.vincent069@gmail.com"
+                            <a href="mailto:alainvincent.razafimandimby@gmail.com"
                                 className="hover:text-indigo-700 transition duration-300"
                                 aria-label="Email"
                             >
