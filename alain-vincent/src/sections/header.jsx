@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoHome as Home, GoProject as Project, GoGlobe } from "react-icons/go";
 import { IoSchoolOutline as Education } from "react-icons/io5";
 import { LuContact as Contact } from "react-icons/lu";
@@ -9,8 +9,18 @@ import "./../styles/header.css";
 
 function Header() {
   const { t, i18n } = useTranslation();
+  const navRef = useRef(null);
+  const btnRef = useRef(null);
   const [navOpen, setNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [activeLanguage, setActiveLanguage] = useState("en");
+  const menus = [
+    { icon: <Home size={20} />, key: "nav.home", link: "#home", id: "home" },
+    { icon: <Education size={20} />, key: "nav.education", link: "#education", id: "education" },
+    { icon: <Project size={20} />, key: "nav.projects", link: "#projets", id: "projets" },
+    { icon: <Competences size={20} />, key: "nav.skills", link: "#competences", id: "competences" },
+    { icon: <Contact size={20} />, key: "nav.contact", link: "#contact", id: "contact" },
+  ];
 
   const showNavigation = () => {
     setNavOpen(prev => !prev);
@@ -32,23 +42,34 @@ function Header() {
 
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
+    setActiveLanguage(lang);
     document.activeElement?.blur();
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      navRef.current &&
+      !navRef.current.contains(event.target) &&
+      btnRef.current &&
+      !btnRef.current.contains(event.target)
+    ) {
+      setNavOpen(false);
+    }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    }
+    };
   }, []);
 
-  const menus = [
-    { icon: <Home size={20} />, key: "nav.home", link: "#home", id: "home" },
-    { icon: <Education size={20} />, key: "nav.education", link: "#education", id: "education" },
-    { icon: <Project size={20} />, key: "nav.projects", link: "#projets", id: "projets" },
-    { icon: <Competences size={20} />, key: "nav.skills", link: "#competences", id: "competences" },
-    { icon: <Contact size={20} />, key: "nav.contact", link: "#contact", id: "contact" },
-  ];
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [])
 
   return (
     <nav className="sticky top-0 z-50 h-15 md:h-20 flex justify-between bg-base-100 px-4 shadow-lg">
@@ -64,6 +85,7 @@ function Header() {
         <button
           className={navOpen ? "humberger open" : "humberger"}
           type="button"
+          ref={btnRef}
           onClick={showNavigation}
         >
           <span className="bg-base-content"></span>
@@ -71,9 +93,12 @@ function Header() {
           <span className="bg-base-content"></span>
         </button>
 
-        <div className={`navlinks-container ${navOpen ? "open" : "hidden"}`}>
+        <div
+          ref={navRef}
+          className={`navlinks-container ${navOpen ? "open" : "hidden"}`}
+        >
 
-          <div className="w-[50%] md:w-full flex flex-col md:flex-row gap-4 md:gap-6 bg-base-100 p-4 md:p-0">
+          <div className="w-[55%] md:w-full relative flex flex-col md:flex-row gap-4 md:gap-6 bg-base-100 p-4 md:p-0">
 
             {menus.map((item) => (
               <a
@@ -86,6 +111,26 @@ function Header() {
                 <h2>{t(item.key)}</h2>
               </a>
             ))}
+
+            <div className="block md:hidden">
+              <div className="flex items-center gap-2 pt-4">
+                <GoGlobe size={20} />
+                <span>{t("lang.label")}</span>
+              </div>
+              <ul className="menu bg-base-100 w-full">
+                {LANGUAGES.map((lang, index) => (
+                  <li key={index} className="p-1 cursor-pointer">
+                    <button
+                      className={`${activeLanguage === lang.code ? "text-primary" : ""}`}
+                      onClick={() => { handleChangeLanguage(lang.code); setNavOpen(false) }}
+                    >
+                      {t(lang.label)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
 
           </div>
         </div>
@@ -104,7 +149,7 @@ function Header() {
                     className=""
                     onClick={() => { handleChangeLanguage(lang.code) }}
                   >
-                    {lang.label}
+                    {t(lang.label)}
                   </button>
                 </li>
               ))}
