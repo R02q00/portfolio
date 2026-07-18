@@ -8,8 +8,7 @@ export default function Content() {
     const content = [
         { id: "education", element: <Story /> },
         { id: "projets", element: <Project /> },
-        { id: "competences", element: <Skills /> },
-        { id: "contact", element: <Contact /> }
+        { id: "competences", element: <Skills /> }
     ]
     return (
         <>
@@ -23,6 +22,9 @@ export default function Content() {
                     </section>
                 ))
             }
+            <section id="contact" className="pt-20 pb-5 px-3 md:mx-auto">
+                <Contact />
+            </section>
         </>
     );
 }

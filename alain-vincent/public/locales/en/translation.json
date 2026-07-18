@@ -7,6 +7,11 @@
     "skills": "Skills",
     "contact": "Contact"
   },
+  "lang":{
+    "label":"Language",
+    "en":"English",
+    "fr":"French"
+  },
   "hero": {
     "greeting": "Hello, I'm ",
     "description": "Computer Engineering student, currently seeking opportunities to develop my skills and gain professional experience in the industry.",

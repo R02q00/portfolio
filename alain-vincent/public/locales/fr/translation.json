@@ -7,6 +7,11 @@
     "skills": "Compétences",
     "contact": "Contact"
   },
+  "lang":{
+    "label":"Langues",
+    "en":"Anglais",
+    "fr":"Français"
+  },
   "hero": {
     "greeting": "Bonjour je suis, ",
     "description": "Étudiant en Ingénierie Informatique, je suis actuellement à la recherche d’opportunités afin de développer mes compétences et d’acquérir de l’expérience dans le monde professionnel.",
